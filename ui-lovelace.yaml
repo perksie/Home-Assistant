@@ -1,0 +1,567 @@
+title: Home
+resources:
+  - url: /hacsfiles/button-card/button-card.js
+    type: module
+  - url: /local/mini-graph-card-bundle.js?v=0.9.3
+    type: module
+  - url: /browser_mod.js
+    type: module
+  - url: /hacsfiles/bar-card/bar-card.js
+    type: module
+
+
+button_card_templates:
+  button-card-headers:
+    styles:
+      card:
+        - text-transform: uppercase
+        - font-size: 150%
+        - font-weight: 100
+        - letter-spacing: 10px
+      template: header
+
+  button-card-main:
+    styles:
+      name:
+        - font-size: 14px
+
+views:
+  - id: 0
+    icon: mdi:castle
+    name: Home
+    cards:
+      - cards:
+          - color_type: icon
+            name: Downstairs
+            template: button-card-headers
+            type: 'custom:button-card'
+          - cards:
+              - aspect_ratio: 1/1
+                color: 'rgb(28, 128, 199)'
+                double_tap_action:
+                  action: call-service
+                  service: homeassistant.turn_off
+                  service_data: 
+                entity: group.downstairs
+                name: Downstairs lights
+                icon: 'mdi:lightbulb-outline'
+                hold_action:
+                  action: more-info
+                state:
+                  - color: var(--disabled-text-color)
+                    icon: 'mdi:lightbulb-outline'
+                    value: 'off'
+                  - color: 'rgb(255, 228, 70)'
+                    icon: 'mdi:lightbulb-on-outline'
+                    value: 'on'
+                type: 'custom:button-card'
+                template: button-card-main
+              
+              - aspect_ratio: 1/1
+                color: 'rgb(28, 128, 199)'
+                entity: light.baby_room_light
+                name: 3D Printer
+                hold_action:
+                  action: more-info
+                icon: 'mdi:led-strip-variant'
+                state:
+                  - color: var(--disabled-text-color)
+                    icon: 'mdi:led-strip-variant'
+                    value: 'off'
+                  - color: 'rgb(255, 228, 70)'
+                    icon: 'mdi:led-strip-variant'
+                    value: 'on'
+                type: 'custom:button-card'
+                template: button-card-main
+              - entities:
+                - sensor.multisensor_temperature
+                font_size: 75
+                line_color: green
+                show:
+                  icon: false
+                  name: null
+                  state: true
+                type: 'custom:mini-graph-card'
+            type: horizontal-stack
+
+
+          - color_type: icon
+            name: Living Room
+            template: button-card-headers
+            type: 'custom:button-card'
+          - cards:
+            - aspect_ratio: 1/1
+              color: 'rgb(28, 128, 199)'
+              entity: switch.xiaomi_mi_smart_wifi_socket
+              name: Night light
+              icon: 'mdi:lightbulb-outline'
+              state:
+                - color: var(--disabled-text-color)
+                  icon: 'mdi:lightbulb-outline'
+                  value: 'off'
+                - color: 'rgb(255, 228, 70)'
+                  icon: 'mdi:lightbulb-on-outline'
+                  value: 'on'
+                - color: 'rgb(255, 0, 0)'
+                  icon: 'mdi:lightbulb-outline'
+                  value: 'unavailable'
+              type: 'custom:button-card'
+            - aspect_ratio: 1/1
+              color: 'rgb(28, 128, 199)'
+              double_tap_action:
+                action: call-service
+                service: homeassistant.turn_off
+                service_data: 
+              entity: light.garbage_light
+              name: garbage lights
+              icon: 'mdi:lightbulb-outline'
+              hold_action:
+                action: more-info
+              state:
+                - color: var(--disabled-text-color)
+                  icon: 'mdi:lightbulb-outline'
+                  value: 'off'
+                - color: 'rgb(255, 228, 70)'
+                  icon: 'mdi:lightbulb-on-outline'
+                  value: 'on'
+              type: 'custom:button-card'
+            type: horizontal-stack
+        type: vertical-stack
+
+
+      - cards:
+          - color_type: icon
+            name: Who is home
+            template: button-card-headers
+            type: 'custom:button-card'
+
+          - cards:
+            - type: horizontal-stack
+              cards:
+                - type: entities
+                  show_header_toggle: false
+                  entities:
+                    - entity: sensor.ben
+                    - type: divider
+                    - entity: sensor.bens_iphone_battery_level_2
+                      name: Battery level
+                - type: entities
+                  show_header_toggle: false
+                  entities:
+                    - entity: sensor.renee
+                    - type: divider
+                    - entity: sensor.renee_battery_level
+                      name: Battery level
+            type: horizontal-stack
+        type: vertical-stack
+
+
+
+      - cards:
+          - color_type: icon
+            name: Garage
+            template: button-card-headers
+            type: 'custom:button-card'
+          - cards:
+            - aspect_ratio: 1/1
+              name: Garage Door - Renee
+              color: 'rgb(28, 128, 199)'
+              entity: binary_sensor.renee_garage_door_2
+              tap_action:
+                action: call-service
+                service: script.garage_relay
+              state:
+                - color: var(--disabled-text-color)
+                  icon: mdi:garage
+                  value: 'off'
+                - color: 'rgb(255, 0, 0)'
+                  icon: mdi:garage-open
+                  value: 'on'
+              type: 'custom:button-card'
+              template: button-card-main
+            - aspect_ratio: 1/1
+              color: 'rgb(28, 128, 199)'
+              entity: light.workshop
+              name: Workshop
+              hold_action:
+                action: more-info
+              icon: 'mdi:led-strip-variant'
+              state:
+                - color: var(--disabled-text-color)
+                  icon: 'mdi:led-strip-variant'
+                  value: 'off'
+                - color: 'rgb(255, 228, 70)'
+                  icon: 'mdi:led-strip-variant'
+                  value: 'on'
+              type: 'custom:button-card'
+              template: button-card-main
+            - aspect_ratio: 1/1
+              name: Garage Door - Ben
+              color: 'rgb(28, 128, 199)'
+              tap_action:
+                action: call-service
+                service: script.TODO
+              state:
+                - color: var(--disabled-text-color)
+                  icon: mdi:garage
+                  value: 'off'
+                - color: 'rgb(255, 0, 0)'
+                  icon: mdi:garage-open
+                  value: 'on'
+              type: 'custom:button-card'
+            type: horizontal-stack
+
+          - color_type: icon
+            name: Main Bedroom
+            template: button-card-headers
+            type: 'custom:button-card'
+          - cards:  
+            - aspect_ratio: 1/1
+              name: Bed Glow
+              icon: 'mdi:bed-empty'
+              color: 'rgb(28, 128, 199)'
+              entity: group.bedlight
+              hold_action:
+                action: more-info
+              state:
+                - color: var(--disabled-text-color)
+                  value: 'off'
+                - color: 'rgb(255, 228, 70)'
+                  value: 'on'
+              type: 'custom:button-card'
+
+
+
+            - aspect_ratio: 1/1
+              name: Sleep Music
+              icon: 'mdi:sleep'
+              double_tap_action:
+                action: call-service
+                service: script.stop_sleep_music
+              color: 'rgb(28, 128, 199)'
+              entity: switch.sleepmusic
+              state:
+                - color: var(--disabled-text-color)
+                  value: 'off'
+                - color: 'rgb(255, 228, 70)'
+                  value: 'on'
+              type: 'custom:button-card'
+            type: horizontal-stack
+
+        type: vertical-stack
+
+
+
+
+  - id: 1
+    icon: mdi:shield-home
+    name: Alarm Panel
+    cards:
+      - cards:
+          - type: alarm-panel
+            entity: alarm_control_panel.home_alarm
+        type: vertical-stack
+      - cards:
+        - color_type: icon
+          name: Motion
+          template: button-card-headers
+          type: 'custom:button-card'
+        - cards:
+            - type: entities
+              entities:
+                - binary_sensor.entrance
+                - binary_sensor.garage
+                - binary_sensor.multisensor_motion
+          type: horizontal-stack
+        type: vertical-stack
+
+
+  - id: 2
+    name: Appliance
+    icon: mdi:washing-machine
+    cards:
+          - type: entities
+            show_header_toggle: off
+            entities:
+            - type: 'custom:button-card'
+              name: Trash Schedule
+              template: button-card-headers
+              color_type: icon
+            - type: 'custom:bar-card'
+              title_position: inside
+              align: split
+              show_icon: true
+              padding: 4px
+              card_style: 
+                border-radius: 5px
+              columns: 1
+              color: '#bf4040'
+              entities:
+                - entity: input_select.trash_pickup_day
+                  title: Trash Pickup Day             
+            - type: 'custom:bar-card'
+              title_position: inside
+              align: split
+              show_icon: true
+              padding: 4px
+              card_style: 
+                border-radius: 5px
+              columns: 2
+              color: '#ffff00'
+              entities:
+                - entity: input_select.recycle_pickup_day
+                  title: Recycle Day
+                - entity: input_select.recycle_pickup_week
+                  title: Recycle Week
+                    
+                    
+            - type: 'custom:bar-card'
+              title_position: inside
+              align: split
+              show_icon: true
+              padding: 4px
+              card_style: 
+                border-radius: 5px
+              columns: 3
+              entities:
+                - entity: sensor.trash
+                  show_value: false
+                  icon: fas:trash-alt
+                  color: '#bf4040'
+                - entity: sensor.recycle
+                  show_value: false
+                  icon: fas:recycle
+                  color: '#ffff00'
+
+
+  - id: 3
+    name: Covid 19
+    icon: mdi:virus
+    cards:
+      - cards:
+        - decimals: 0
+          entities:
+            - color: red
+              entity: sensor.covid_19_new_qld
+              name: New QLD Cases
+            - color: orange
+              entity: sensor.covid_19_new_nsw
+              name: New NSW Cases
+            - color: blue
+              entity: sensor.covid_19_new
+              name: New VIC Cases
+              show_state: true
+              y_axis: secondary
+          font_size: 90
+          height: 100
+          hours_to_show: 168
+          line_width: 2
+          lower_bound: 0
+          lower_bound_secondary: 0
+          name: Daily Cases by State
+          points_per_hour: 0.1
+          show:
+            extrema: false
+            fill: false
+            icon: false
+            labels: true
+            lables_secondary: true
+            name: true
+            points: false
+          smoothing: true
+          type: 'custom:mini-graph-card'
+        - cards:
+            - entity: sensor.covid_19_qld
+              name: Total Cases
+              type: entity
+            - attribute: deaths
+              entity: sensor.covid_19_qld
+              icon: 'mdi:emoticon-dead-outline'
+              name: Deaths
+              type: entity
+          type: horizontal-stack
+        - cards:
+            - attribute: active
+              entity: sensor.covid_19_qld
+              icon: 'mdi:thermometer'
+              name: Active
+              type: entity
+            - attribute: recovered
+              entity: sensor.covid_19_qld
+              icon: 'mdi:emoticon-happy-outline'
+              name: Recovered
+              type: entity
+          type: horizontal-stack
+        - cards:
+            - attribute: hospital
+              entity: sensor.covid_19_qld
+              icon: 'mdi:hospital-building'
+              name: Hospital Beds
+              type: entity
+            - attribute: icu
+              entity: sensor.covid_19_qld
+              icon: 'mdi:hospital'
+              name: Critical Condition
+              type: entity
+          type: horizontal-stack
+        type: vertical-stack
+
+  - id: 4
+    name: 3D Printer
+    icon: mdi:printer-3d-nozzle
+    cards:
+      - cards:
+        - color_type: icon
+          name: 3D Printer Monitoring
+          template: button-card-headers
+          type: 'custom:button-card'
+        - cards:
+            - type: 'custom:mini-graph-card'
+              entities:
+                - sensor.3d_printer_temperature
+              name: Chamber Temp
+              font_size: 75
+              line_color: blue
+              show:
+                icon: false
+                state: true
+            - type: 'custom:mini-graph-card'
+              entities:
+                - sensor.octoprint_actual_bed_temp
+              name: Bed Temp
+              font_size: 75
+              line_color: orange
+              show:
+                icon: false
+                state: true
+            - type: 'custom:mini-graph-card'
+              entities:
+                - sensor.octoprint_actual_tool0_temp
+              name: Tool Temp
+              font_size: 75
+              line_color: red
+              show:
+                icon: false
+                state: true
+          type: horizontal-stack
+        type: vertical-stack
+      - cards:  
+        - color_type: icon
+          name: 3D Printer Controls
+          template: button-card-headers
+          type: 'custom:button-card'
+        - cards:
+            - aspect_ratio: 1/1
+              color: 'rgb(28, 128, 199)'
+              entity: light.3d_printer_light
+              name: 3D Printer
+              hold_action:
+                action: more-info
+              icon: 'mdi:led-strip-variant'
+              state:
+                - color: var(--disabled-text-color)
+                  icon: 'mdi:led-strip-variant'
+                  value: 'off'
+                - color: 'rgb(255, 228, 70)'
+                  icon: 'mdi:led-strip-variant'
+                  value: 'on'
+              type: 'custom:button-card'
+              template: button-card-main
+          type: horizontal-stack
+        type: vertical-stack
+
+
+  - id: 5
+    name: System
+    icon: mdi:settings
+    cards:
+      - cards:
+        - color_type: icon
+          name: Speed Test
+          template: button-card-headers
+          type: 'custom:button-card'
+        - cards:
+            - type: custom:mini-graph-card
+              entities: 
+                - sensor.speedtest_ping
+              height: 20
+              line_width: 2
+              font_size: 70
+              hours_to_show: 168
+              points_per_hour: 1
+              show:
+                extrema: true
+                fill: true
+                graph: bar
+              color_thresholds:
+                - value: 25
+                  color: "#FFFF00"
+                - value: 0
+                  color: "#3498db"
+          type: horizontal-stack
+        - cards:
+            - type: custom:mini-graph-card
+              entities: 
+                - sensor.speedtest_download
+              height: 50
+              line_width: 2
+              font_size: 70
+              hours_to_show: 168
+              points_per_hour: 1
+              show:
+                extrema: true
+                fill: true
+              color_thresholds:
+                - value: 0
+                  color: "#FFFF00"
+                - value: 40
+                  color: "#3498db" 
+
+            - type: custom:mini-graph-card
+              entities: 
+                - sensor.speedtest_upload
+              height: 50
+              line_width: 2
+              font_size: 70
+              hours_to_show: 168
+              points_per_hour: 1
+              show:
+                extrema: true
+                fill: true
+              color_thresholds:
+                - value: 0
+                  color: "#FFFF00"
+                - value: 13
+                  color: "#3498db"
+          type: horizontal-stack
+        type: vertical-stack    
+
+      - cards:
+        - color_type: icon
+          name: Ad Block
+          template: button-card-headers
+          type: 'custom:button-card'
+        - cards:
+            - type: 'custom:mini-graph-card'
+              entities:
+                - sensor.pi_hole_ads_blocked_today
+              height: 50
+              line-width: 2
+              font-size: 70
+              hours_to_show: 168
+              group_by: date
+              #points_per_hour: 5
+              align_state: center
+              show:
+                fill: true
+                graph: bar
+              color_thresholds:
+                - value: 0
+                  color: "#FFFF00"
+                - value: 40
+                  color: "#0C88DB"
+
+          type: horizontal-stack
+        type: vertical-stack
+
+

@@ -1,0 +1,81 @@
+{
+  "nodes": {
+    "c1c0c403_f8f698": {
+      "lastPayload": {
+        "state": "13469",
+        "attributes": {
+          "state": "VIC",
+          "cases": "13469",
+          "deaths": "170",
+          "recovered": "5628",
+          "tested": "1746953",
+          "active": "7449",
+          "hospital": "575",
+          "icu": "42"
+        }
+      }
+    },
+    "58f80cd_746d5f4": {
+      "lastPayload": {
+        "state": 434,
+        "attributes": {}
+      }
+    },
+    "501ec33c_9ef57c": {
+      "lastPayload": {
+        "state": "3643",
+        "attributes": {
+          "state": "NSW",
+          "cases": "3643",
+          "deaths": "50",
+          "recovered": "2805",
+          "tested": "1589861",
+          "active": "270",
+          "hospital": "16",
+          "icu": "10"
+        }
+      }
+    },
+    "595ed284_a9ffac": {
+      "lastPayload": {
+        "state": "1088",
+        "attributes": {
+          "state": "QLD",
+          "cases": "1088",
+          "deaths": "6",
+          "recovered": "1069",
+          "tested": "620412",
+          "active": "12",
+          "hospital": "6",
+          "icu": "0"
+        }
+      }
+    },
+    "949e8538_2e2728": {
+      "lastPayload": {
+        "state": 12,
+        "attributes": {}
+      }
+    },
+    "4090e77a_3cd5f8": {
+      "lastPayload": {
+        "state": 0,
+        "attributes": {}
+      }
+    },
+    "a746307e_682d6": {
+      "lastPayload": {
+        "state": "E",
+        "attributes": {
+          "total": "E",
+          "recovered": "o",
+          "deaths": "r",
+          "active": "r",
+          "tests": ":",
+          "hospital": " ",
+          "icu": "g"
+        }
+      }
+    }
+  }
+}

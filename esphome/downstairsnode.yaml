@@ -1,0 +1,65 @@
+esphome:
+  name: downstairsnode
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: "IoT"
+  password: !secret wifi
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Downstairsnode Fallback Hotspot"
+    password: "IY3sIZ76sh0Z"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: !secret esp
+
+ota:
+  password: !secret esp
+
+sensor:
+  - platform: dht
+    pin: D7
+    temperature:
+      name: "Multisensor Temperature"
+    humidity:
+      name: "Multisensor Humidity"
+    model: DHT22
+  - platform: adc
+    pin: A0
+    name: "Multisensor Brightness"
+    unit_of_measurement: lux
+    filters:
+      - lambda: |-
+          return (x / 10000.0) * 2000000.0;
+
+binary_sensor:
+  - platform: gpio
+    pin: D5
+    name: "Multisensor Motion"
+    device_class: motion
+
+output:
+  - platform: esp8266_pwm
+    pin: D1
+    id: redgpio
+  - platform: esp8266_pwm
+    pin: D2
+    id: greengpio
+  - platform: esp8266_pwm
+    pin: D3
+    id: bluegpio
+
+light:
+  - platform: rgb
+    name: "Multisensor Light"
+    red: redgpio
+    green: greengpio
+    blue: bluegpio

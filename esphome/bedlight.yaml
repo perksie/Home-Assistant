@@ -1,0 +1,63 @@
+esphome:
+  name: bedlight
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: "IoT"
+  password: "h1dap*LnS8"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Bedlight Fallback Hotspot"
+    password: "9JDXr5LDIilp"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: "77&&0Yroa7$E"
+
+ota:
+  password: "77&&0Yroa7$E"
+
+light:
+  - platform: fastled_clockless
+    chipset: WS2811
+    pin: D1
+    num_leds: 120
+    rgb_order: BRG
+    default_transition_length: 1s
+    name: "Bed Back Board"
+    
+
+  - platform: fastled_clockless
+    chipset: WS2811
+    pin: D4
+    num_leds: 120
+    rgb_order: BRG
+    default_transition_length: 1s
+    effects:
+      - addressable_twinkle:
+      - addressable_twinkle:
+          name: Twinkle Effect With Custom Values
+          twinkle_probability: 5%
+          progress_interval: 4ms
+      - addressable_random_twinkle:
+      - addressable_random_twinkle:
+          name: Random Twinkle Effect With Custom Values
+          twinkle_probability: 5%
+          progress_interval: 32ms
+    name: "Bed Left"
+
+
+  - platform: fastled_clockless
+    chipset: WS2811
+    pin: D5
+    num_leds: 120
+    rgb_order: BRG
+    default_transition_length: 1s
+    name: "Bed Right"

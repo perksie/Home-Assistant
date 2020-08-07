@@ -1,0 +1,92 @@
+
+#################################################################
+#                                                               #
+#                           Group                               #
+#                                                               #
+#################################################################
+group:
+  downstairs:
+    name: Downstairs
+    entities: 
+      - light.downstairs_couch
+      - light.computer_light
+      - light.bar_light
+
+  bedlight:
+    name: Bedlight
+    entities:
+      - light.bed_left
+      - light.bed_right
+
+
+
+#################################################################
+#                                                               #
+#                           Yeelight                            #
+#                                                               #
+#################################################################
+
+yeelight:
+  devices:
+    192.168.50.14:
+      name: Workshop
+      transition: 1000 
+      use_music_mode: false
+      save_on_change: True
+
+#  192.168.100.91:
+#    name: Living Room
+#    transition: 1000
+#    save_on_change: True
+
+    192.168.50.12:
+      name: Computer Light
+      transition: 1300
+      save_on_change: True
+      use_music_mode: false
+
+    192.168.50.11:
+      name: Downstairs Couch
+      transition: 1300
+      save_on_change: True
+      use_music_mode: false
+
+    192.168.50.10:
+      name: Bar light
+      transition: 1300
+      save_on_change: True
+      use_music_mode: false
+
+    192.168.50.15:
+      name: Baby Room Light
+      transition: 1300
+      save_on_change: True
+      use_music_mode: false
+
+
+
+#################################################################
+#                                                               #
+#                           Switches                            #
+#                                                               #
+#################################################################
+
+
+switch:
+- platform: xiaomi_miio
+  name: Xiaomi Mi Smart WiFi Socket
+  host: 192.168.50.30
+  token: 5229af46d195b891b1c92dea24fb107e
+  model: chuangmi.plug.m1
+  
+
+
+
+
+#################################################################
+#                                                               #
+#                         Automations                           #
+#                                                               #
+#################################################################
+
+

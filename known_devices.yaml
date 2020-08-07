@@ -1,0 +1,17 @@
+
+
+
+
+mainpc:
+  icon:
+  mac:
+  name: mainpc
+  picture:
+  track: true
+
+mediapc:
+  icon:
+  mac:
+  name: mediapc
+  picture:
+  track: true

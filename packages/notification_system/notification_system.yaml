@@ -1,0 +1,31 @@
+
+#################################################################
+#                                                               #
+#                           Notify                              #
+#                                                               #
+#################################################################
+
+notify:
+  - name: discord
+    platform: discord
+    token: !secret discord
+
+  - name: bot
+    platform: group
+    services:
+      service: discord
+      data:
+        target: !secret discordtarget
+
+#################################################################
+#                                                               #
+#                           Group                               #
+#                                                               #
+#################################################################
+
+group:
+  all_google:
+    name: All Google devices
+    entities:
+      - media_player.den_speaker
+      - media_player.office_speaker

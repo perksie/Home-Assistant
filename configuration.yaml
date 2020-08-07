@@ -1,0 +1,60 @@
+homeassistant:
+  packages: !include_dir_named packages
+  whitelist_external_dirs:
+    - /config
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+http:
+
+discovery:
+
+map:
+sun:
+
+frontend:
+  themes: !include themes.yaml
+
+lovelace:
+  mode: yaml
+
+mqtt:
+  broker: 192.168.50.2
+  port: 1883
+  username: ben
+  password: !secret mqtt 
+
+
+
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+
+
+influxdb:
+  host: 192.168.100.250
+  database: homeassistant
+  username: homeassistant
+  password: homeassistant
+  include:
+    entities:
+      - sensor.multisensor_temperature
+      - sensor.multisensor_brightness
+      - sensor.speedtest_download
+      - sensor.speedtest_ping
+      - sensor.speedtest_upload
+
+
+recorder:
+  purge_interval: 1
+  purge_keep_days: 14
+
+google_assistant: !include includes/gassistant.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+zone: !include includes/zones.yaml
+#camera: !include includes/cameras.yaml
+

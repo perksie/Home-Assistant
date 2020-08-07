@@ -1,0 +1,6 @@
+Downstairs:
+  name: Downstairs
+  entities: 
+    - light.downstairs_couch
+    - light.computer_light
+    - light.bar_light

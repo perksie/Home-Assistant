@@ -1,0 +1,44 @@
+esphome:
+  name: 3dprinter
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: "IoT"
+  password: !secret wifi
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "3Dprinter Fallback Hotspot"
+    password: "WI5Q2y9DPkPr"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: !secret esp
+
+ota:
+  password: !secret esp
+
+light:
+  - platform: fastled_clockless
+    chipset: WS2812
+    pin: D4
+    num_leds: 60
+    rgb_order: GRB
+    name: "3D Printer Light"
+    
+sensor:
+  - platform: dht
+    pin: D1
+    temperature:
+      name: "3D Printer Temperature"
+      unit_of_measurement: "°C"
+    humidity:
+      name: "3D Printer Humidity"
+    update_interval: 60s
+    model: DHT22

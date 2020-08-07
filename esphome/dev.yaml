@@ -1,0 +1,120 @@
+esphome:
+  name: dev
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: "IoT"
+  password: !secret wifi
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Dev Fallback Hotspot"
+    password: "JIXvG0C6JYcj"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: !secret esp
+  
+ota:
+  password: !secret esp
+
+
+
+light:
+  - platform: fastled_clockless
+    chipset: WS2811
+    pin: D1
+    num_leds: 120
+    rgb_order: BRG
+    default_transition_length: 1s
+    name: "Bed Back Board"
+#sensor:
+#  - platform: pulse_counter
+#    pin:
+#      number: D7
+#      mode: INPUT_PULLUP   
+#    unit_of_measurement: 'mm'
+#    name: "${friendly_name} Rainfall"
+#    filters:
+#      - debounce: 0.1s
+# opp:4,9x110mm, 200ml -> 101 pulses. 1mm rainfall = 5,39 ml. 1ml = 0,1855 mm. 1 pulse = 1,98 ml. 1 pulse = 0,367 mm rainfall.  
+#      - multiply: 0.367
+
+#sensor:
+#  - platform: pulse_counter
+#    pin:
+#      number: D8
+#      inverted: True
+#      mode: INPUT_PULLUP    
+#    unit_of_measurement: 'km/h'
+#    name: 'Windspeed'
+#    update_interval: 10s
+#    filters:
+#     lambda: return x * 0.458 / 60 * 3.6;
+     
+#sensor:
+#  - platform: adc
+#    pin: A0
+#    name: "Wind Direction"
+#    update_interval: 5s
+#    filters:
+#      - lambda: |-
+#          return (x / 10000.0);
+          
+
+#  - platform: resistance
+#    sensor: adc_adcsensor
+#    configuration: DOWNSTREAM
+#    resistor: 10kOhm
+#    name: Resistance Sensor
+
+#### Reed swtich for garage ###
+#binary_sensor:
+#  - platform: gpio
+#    pin:
+#      number: D2
+#      mode: INPUT_PULLUP
+#    name: "Living Room Window"
+#    device_class: door
+##relay switch for garage    
+#switch:
+#  - platform: gpio
+#    name: "Relay"
+#    pin: D4
+
+#light:
+#  - platform: rgb
+#    name: "test Lights"
+#    red: output_component1
+#    green: output_component2
+#    blue: output_component3
+
+# Example output entry
+#output:
+#  - platform: esp8266_pwm
+#    id: output_component1
+#    pin: D8
+#    max_power: 80%
+#  - platform: esp8266_pwm
+#    id: output_component2
+#    pin: D7
+#    max_power: 80%
+#  - platform: esp8266_pwm
+#    id: output_component3
+#    pin: D6
+#    max_power: 80%
+    
+##rain sesnor
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: D2
+      mode: INPUT_PULLUP
+    name: "rain sensor"
+    device_class: door

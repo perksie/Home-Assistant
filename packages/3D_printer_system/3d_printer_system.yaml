@@ -1,0 +1,5 @@
+octoprint:
+  host: 192.168.100.210
+  api_key: E4F4355536DF420ABCE969C578622510
+  bed: true
+  number_of_tools: 2

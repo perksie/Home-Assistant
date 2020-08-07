@@ -1,0 +1,101 @@
+
+
+####################################################
+#                                                  #
+#                Sensors - Template                #
+#                                                  #
+####################################################
+sensor:
+- platform: template
+  sensors:
+    ben:
+      friendly_name: Ben
+      entity_picture_template: /local/ben.png
+      value_template: >-
+        {% if is_state('device_tracker.bens_iphone_3', 'home') %}
+          Home
+        {% elif is_state('device_tracker.bens_iphone_3', 'work') %}
+          work
+        {% elif is_state('device_tracker.bens_iphone_3', 'Parents') %}
+          Parents House
+        {% else %}
+          Away
+        {% endif %}
+    renee:
+      friendly_name: Renee
+      entity_picture_template: /local/renee.png
+      value_template: >-
+        {% if is_state('device_tracker.renee_3', 'home') %}
+          Home
+        {% elif is_state('device_tracker.renee_3', 'Parents') %}
+          Parents House
+        {% else %}
+          Away
+        {% endif %}
+
+
+#################################################################
+#                                                               #
+#                       Device Tracker                          #
+#                                                               #
+#################################################################
+
+device_tracker:
+  - platform: iphonedetect
+    consider_home: 60
+    new_device_defaults:
+      track_new_devices: true
+    hosts:
+      iphoneBEN: 192.168.100.11
+####################################################
+#                                                  #
+#                       Ping                       #
+#                                                  #
+####################################################
+
+  - platform: ping
+    hosts:
+      mainpc: 192.168.100.9
+      mediapc: 192.168.100.44
+
+
+
+
+
+#################################################################
+#                                                               #
+#                         Automations                           #
+#                                                               #
+#################################################################
+
+automation:
+- id: '4123'
+  alias: Downstairs lights off - presences detection
+  trigger:
+    platform: state
+    entity_id: binary_sensor.multisensor_motion
+    to: 'off'
+    for: 
+      minutes: 3
+  condition: 
+    condition: state
+    entity_id: device_tracker.mainpc
+    state: 'not_home'
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.downstairs
+
+- id: '1545199209984'
+  alias: Downstairs presences detection for lights
+  trigger:
+    platform: state
+    entity_id: binary_sensor.multisensor_motion
+    from: 'off'
+    to: 'on'
+  condition:
+    condition: sun
+    after: sunset
+    after_offset: "-01:00:00"
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.downstairs

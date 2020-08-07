@@ -1,0 +1,46 @@
+esphome:
+  name: garagedoor
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: "IoT"
+  password: !secret wifi
+  reboot_timeout: 0s
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Garagedoor Fallback Hotspot"
+    password: "GTPZPhGy4fj7"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: !secret esp
+  reboot_timeout: 0s
+
+ota:
+  password: !secret esp
+
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: D2
+      mode: INPUT_PULLUP
+    name: "Renee Garage Door"
+    device_class: door
+    
+switch:
+  - platform: gpio
+    name: "Renee Garage Relay"
+    pin: D5
+
+  - platform: gpio
+    name: "Ben Garage Relay"
+    pin: D6
+    

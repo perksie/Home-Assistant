@@ -1,0 +1,47 @@
+esphome:
+  name: rubbishnode
+  platform: ESP8266
+  board: d1_mini
+
+wifi:
+  ssid: "IoT"
+  password: !secret wifi
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Rubbishnode Fallback Hotspot"
+    password: "DxmEnyRFKVgt"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: !secret esp
+
+ota:
+  password: !secret esp
+
+light:
+  - platform: rgb
+    name: "Garbage Light"
+    red: output_component1
+    green: output_component2
+    blue: output_component3
+
+# Example output entry
+output:
+  - platform: esp8266_pwm
+    id: output_component1
+    pin: D4
+    max_power: 90%
+  - platform: esp8266_pwm
+    id: output_component2
+    pin: D3
+    max_power: 90%
+  - platform: esp8266_pwm
+    id: output_component3
+    pin: D2
+    max_power: 90%

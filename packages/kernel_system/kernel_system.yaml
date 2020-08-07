@@ -1,0 +1,210 @@
+
+#################################################################
+#                                                               #
+#                          Customize                            #
+#                                                               #
+#################################################################
+
+homeassistant:
+  customize:
+    sensor.speedtest_ping:
+      friendly_name: Ping
+      icon: mdi:pulse
+    sensor.speedtest_download:
+      friendly_name: Download
+      icon: mdi:arrow-down-bold
+    sensor.speedtest_upload:
+      friendly_name: Upload
+      icon: mdi:arrow-up-bold
+
+
+
+#################################################################
+#                                                               #
+#                          Speed Test                           #
+#                                                               #
+################################################################# 
+
+speedtestdotnet:
+  server_id: 1594
+
+#################################################################
+#                                                               #
+#                         System Health                         #
+#                                                               #
+################################################################# 
+
+system_health:
+
+####################################################
+#                                                  #
+#                      WoL                         #
+#                                                  #
+####################################################
+
+switch:
+  - platform: wake_on_lan
+    mac: 00:23:24:66:e5:b1
+    name: MediaPCwol
+
+
+
+####################################################
+#                                                  #
+#                     PiHole                       #
+#                                                  #
+####################################################
+
+pi_hole:
+  - host: 192.168.100.2
+
+
+#################################################################
+#                                                               #
+#                       Device Tracker                          #
+#                                                               #
+#################################################################
+
+device_tracker:
+
+####################################################
+#                                                  #
+#               Device Track - NMAP                #
+#                                                  #
+####################################################
+
+  - platform: nmap_tracker
+    hosts:
+      - 192.168.5.0/24
+
+
+
+
+
+
+#################################################################
+#                                                               #
+#                       Binary Sensors                          #
+#                                                               #
+#################################################################
+
+binary_sensor:
+
+#################################################################
+#                                                               #
+#                           Sensors                             #
+#                                                               #
+#################################################################
+
+sensor:
+
+
+####################################################
+#                                                  #
+#                 Sensor - Uptime                  #
+#                                                  #
+####################################################
+
+  - platform: uptime
+    name: Time Online
+    unit_of_measurement: hours
+
+####################################################
+#                                                  #
+#                Sensor - File Size                #
+#                                                  #
+####################################################
+
+  - platform: filesize
+    file_paths:
+      - /config/home-assistant_v2.db
+      - /config/home-assistant.log
+
+####################################################
+#                                                  #
+#                Sensor - Time                     #
+#                                                  #
+####################################################
+
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+      - 'date_time'
+      - 'date_time_utc'
+      - 'date_time_iso'
+      - 'time_date'
+      - 'time_utc'
+      - 'beat'
+
+
+
+#################################################################
+#                                                               #
+#                           Group                               #
+#                                                               #
+#################################################################
+
+
+
+
+#################################################################
+#                                                               #
+#                         Automations                           #
+#                                                               #
+#################################################################
+
+automation:
+
+
+- id: 'Set-theme'
+  alias: Set Theme at startup
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    service: frontend.set_theme
+    data:
+      name: GreyNight
+
+- id: 'iOS action'
+  alias: iOS action
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: 'Garage door'
+  action:
+    service: script.garage_relay 
+
+- id: 'Garage door check'
+  alias: Check how long garage door is open for
+  trigger:
+    platform: state
+    entity_id: binary_sensor.renee_garage_door_2
+    to: 'on'
+    for:
+      minutes: 3
+  action:
+    - service: script.attention
+      data:
+        message: 'Is there a reason the garage door is open?'
+    - service: notify.mobile_app_bens_iphone
+      data:
+        message: 'Is the garage door open for a reason?'
+        data:
+          push:
+            sound: attention-tone-new.wav
+
+- id: 'GrafanaVPN'
+  alias: GrafanaVPN
+  trigger:
+    platform: webhook
+    webhook_id: grafanaVPN
+  condition:
+    condition: time
+    after: "08:00:00"
+  action:
+    - service: script.attention
+      data:
+        message: 'VPN connection has dropped.'
