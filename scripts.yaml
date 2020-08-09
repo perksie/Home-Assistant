@@ -50,7 +50,7 @@ attention:
         media_content_id: !secret attentiontone
         media_content_type: 'audio/mp3'
     - delay:
-        seconds: 4
+        seconds: 5
     - service: tts.google_translate_say
       entity_id: group.all_google
       data_template:
