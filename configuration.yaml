@@ -49,8 +49,7 @@ influxdb:
 
 
 recorder:
-  purge_interval: 1
-  purge_keep_days: 14
+  purge_keep_days: 5
 
 google_assistant: !include includes/gassistant.yaml
 script: !include scripts.yaml
