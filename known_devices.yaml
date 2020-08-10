@@ -15,3 +15,31 @@ mediapc:
   name: mediapc
   picture:
   track: true
+
+router:
+  icon:
+  mac:
+  name: router
+  picture:
+  track: true
+
+switch:
+  icon:
+  mac:
+  name: switch
+  picture:
+  track: true
+
+ap:
+  icon:
+  mac:
+  name: ap
+  picture:
+  track: true
+
+soundwave:
+  icon:
+  mac:
+  name: soundwave
+  picture:
+  track: true

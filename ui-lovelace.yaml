@@ -415,7 +415,7 @@ views:
 
   - id: 5
     name: System
-    icon: mdi:settings
+    icon: mdi:cog
     cards:
       - cards:
         - color_type: icon
@@ -502,8 +502,71 @@ views:
                   color: "#FFFF00"
                 - value: 40
                   color: "#0C88DB"
+          type: horizontal-stack
+
+
+        - color_type: icon
+          name: Filesize check
+          template: button-card-headers
+          type: 'custom:button-card'
+        - cards:
+              - type: gauge
+                entity: sensor.home_assistant_v2_db
+                name: Database size
+                max: 150
+              - type: gauge
+                entity: sensor.home_assistant_log
+                name: Log file size
+                max: 2
 
           type: horizontal-stack
         type: vertical-stack
+
+      - cards:
+        - color_type: icon
+        name: System Status
+        template: button-card-headers
+        type: 'custom:button-card'
+      - cards:
+            - type: 'custom:bar-card'
+              show_value: false
+              title_position: inside
+              align: center
+              icon: 'off'
+              padding: 4px
+              card_style:
+                border-radius: 5px
+              columns: 4
+              severity:
+                - color: "#0C88DB"
+                  from: 5
+                  to: 100
+                - color: Red
+                  from: 0
+                  to: 4
+              entities:
+                - entity: sensor.router_state
+                  title: Router
+                  positions:
+                    value: off
+                    icon: off
+                - entity: sensor.switch_state
+                  title: Switch
+                  positions:
+                    value: off
+                    icon: off
+                - entity: sensor.ap_state
+                  title: AP
+                  positions:
+                    value: off
+                    icon: off
+                - entity: sensor.soundwave_state
+                  title: Soundwave Server
+                  positions:
+                    value: off
+                    icon: off
+
+        type: horizontal-stack
+    type: vertical-stack
 
 
