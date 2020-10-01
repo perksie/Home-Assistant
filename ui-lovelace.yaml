@@ -128,6 +128,27 @@ views:
             type: horizontal-stack
         type: vertical-stack
 
+          - color_type: icon
+            name: Baby Room
+            template: button-card-headers
+            type: 'custom:button-card'
+          - cards:
+            - aspect_ratio: 1/1
+              color: 'rgb(28, 128, 199)'
+              entity: light.baby_room_light
+              icon: 'mdi:lightbulb-outline'
+              state:
+                - color: var(--disabled-text-color)
+                  icon: 'mdi:lightbulb-outline'
+                  value: 'off'
+                - color: 'rgb(255, 228, 70)'
+                  icon: 'mdi:lightbulb-on-outline'
+                  value: 'on'
+                - color: 'rgb(255, 0, 0)'
+                  icon: 'mdi:lightbulb-outline'
+                  value: 'unavailable'
+              type: 'custom:button-card'
+            type: horizontal-stack
 
       - cards:
           - color_type: icon
