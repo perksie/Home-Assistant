@@ -110,6 +110,11 @@ binary_sensor:
     name: Soundwave
     scan_interval: 180
     count: 2
+   - platform: ping
+    host: 192.168.100.10
+    name: Shockwave
+    scan_interval: 180
+    count: 2
 
 #################################################################
 #                                                               #
@@ -203,6 +208,16 @@ sensor:
           {% if is_state('binary_sensor.soundwave', 'on') %}
               100
           {% elif is_state('binary_sensor.soundwave', 'off') %}
+            0
+          {% endif %}
+          
+      shockwave_state:
+        friendly_name: Shockwave Server
+        entity_id: binary_sensor.shockwave
+        value_template: >-
+          {% if is_state('binary_sensor.shockwave', 'on') %}
+              100
+          {% elif is_state('binary_sensor.shockwave', 'off') %}
             0
           {% endif %}
 #################################################################
