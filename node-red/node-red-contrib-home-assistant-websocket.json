@@ -2,64 +2,64 @@
   "nodes": {
     "c1c0c403_f8f698": {
       "lastPayload": {
-        "state": "14283",
+        "state": "20307",
         "attributes": {
           "state": "VIC",
-          "cases": "14283",
-          "deaths": "193",
-          "recovered": "6066",
-          "tested": "1759969",
-          "active": "7808",
-          "hospital": "636",
-          "icu": "44"
+          "cases": "20307",
+          "deaths": "811",
+          "recovered": "19243",
+          "tested": "2858794",
+          "active": "186",
+          "hospital": "23",
+          "icu": "0"
         }
       }
     },
     "58f80cd_746d5f4": {
       "lastPayload": {
-        "state": 416,
+        "state": 10,
         "attributes": {}
       }
     },
     "501ec33c_9ef57c": {
       "lastPayload": {
-        "state": "3662",
+        "state": "4106",
         "attributes": {
           "state": "NSW",
-          "cases": "3662",
-          "deaths": "50",
-          "recovered": "2805",
-          "tested": "1642220",
-          "active": "272",
-          "hospital": "16",
-          "icu": "9"
+          "cases": "4106",
+          "deaths": "55",
+          "recovered": "2946",
+          "tested": "2827527",
+          "active": "31",
+          "hospital": "7",
+          "icu": "1"
         }
       }
     },
     "595ed284_a9ffac": {
       "lastPayload": {
-        "state": "1088",
+        "state": "1161",
         "attributes": {
           "state": "QLD",
-          "cases": "1088",
+          "cases": "1161",
           "deaths": "6",
-          "recovered": "1071",
-          "tested": "656876",
-          "active": "11",
-          "hospital": "6",
+          "recovered": "1154",
+          "tested": "1163795",
+          "active": "2",
+          "hospital": "1",
           "icu": "0"
         }
       }
     },
     "949e8538_2e2728": {
       "lastPayload": {
-        "state": 9,
+        "state": 12,
         "attributes": {}
       }
     },
     "4090e77a_3cd5f8": {
       "lastPayload": {
-        "state": 1,
+        "state": 0,
         "attributes": {}
       }
     },
