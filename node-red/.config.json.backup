@@ -1443,7 +1443,7 @@
   "node-red-contrib-light-scheduler": {
    "name": "node-red-contrib-light-scheduler",
    "version": "0.0.16",
-   "local": false,
+   "local": true,
    "nodes": {
     "light-scheduler": {
      "name": "light-scheduler",

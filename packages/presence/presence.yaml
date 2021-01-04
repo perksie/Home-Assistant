@@ -12,11 +12,11 @@ sensor:
       friendly_name: Ben
       entity_picture_template: /local/ben.png
       value_template: >-
-        {% if is_state('device_tracker.bens_iphone_3', 'home') %}
+        {% if is_state('device_tracker.bens_iphone', 'home') %}
           Home
-        {% elif is_state('device_tracker.bens_iphone_3', 'work') %}
+        {% elif is_state('device_tracker.bens_iphone', 'work') %}
           work
-        {% elif is_state('device_tracker.bens_iphone_3', 'Parents') %}
+        {% elif is_state('device_tracker.bens_iphone', 'Parents') %}
           Parents House
         {% else %}
           Away
@@ -25,9 +25,9 @@ sensor:
       friendly_name: Renee
       entity_picture_template: /local/renee.png
       value_template: >-
-        {% if is_state('device_tracker.renee_3', 'home') %}
+        {% if is_state('device_tracker.renee', 'home') %}
           Home
-        {% elif is_state('device_tracker.renee_3', 'Parents') %}
+        {% elif is_state('device_tracker.renee', 'Parents') %}
           Parents House
         {% else %}
           Away
