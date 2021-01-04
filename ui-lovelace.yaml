@@ -136,6 +136,8 @@ views:
               color: 'rgb(28, 128, 199)'
               entity: light.baby_room_light
               icon: 'mdi:lightbulb-outline'
+              hold_action:
+                action: more-info
               state:
                 - color: var(--disabled-text-color)
                   icon: 'mdi:lightbulb-outline'
@@ -166,14 +168,14 @@ views:
                   entities:
                     - entity: sensor.ben
                     - type: divider
-                    - entity: sensor.bens_iphone_battery_level_2
+                    - entity: sensor.bens_iphone_battery_level
                       name: Battery level
                 - type: entities
                   show_header_toggle: false
                   entities:
                     - entity: sensor.renee
                     - type: divider
-                    - entity: sensor.renee_battery_level
+                    - entity: sensor.renee_battery_level_2
                       name: Battery level
             type: horizontal-stack
         type: vertical-stack
@@ -283,6 +285,10 @@ views:
       - cards:
           - type: alarm-panel
             entity: alarm_control_panel.home_alarm
+            states:
+              - arm_home
+              - arm_away
+              - arm_night
         type: vertical-stack
       - cards:
         - color_type: icon
@@ -295,6 +301,7 @@ views:
                 - binary_sensor.entrance
                 - binary_sensor.garage
                 - binary_sensor.multisensor_motion
+                - binary_sensor.floor1
           type: horizontal-stack
         type: vertical-stack
 
@@ -595,6 +602,6 @@ views:
                     icon: off
 
         type: horizontal-stack
-    type: vertical-stack
+    #type: vertical-stack
 
 
