@@ -68,15 +68,7 @@ pi_hole:
 device_tracker:
 
     
-####################################################
-#                                                  #
-#               Device Track - NMAP                #
-#                                                  #
-####################################################
 
-  - platform: nmap_tracker
-    hosts:
-      - 192.168.5.0/24
 
 
 
@@ -89,7 +81,7 @@ device_tracker:
 #                                                               #
 #################################################################
 
-binary_sensor:
+
   - platform: ping
     host: 192.168.100.1
     name: Router
@@ -106,13 +98,18 @@ binary_sensor:
     scan_interval: 180
     count: 2
   - platform: ping
-    host: 192.168.100.253
+    host: 192.168.100.250
     name: Soundwave
     scan_interval: 180
     count: 2
   - platform: ping
     host: 192.168.100.10
     name: Shockwave
+    scan_interval: 180
+    count: 2
+  - platform: ping
+    host: 192.168.100.40
+    name: Vortex
     scan_interval: 180
     count: 2
 
@@ -173,7 +170,7 @@ sensor:
     sensors:
       router_state:
         friendly_name: Core Router
-        entity_id: binary_sensor.router
+        unique_id: binary_sensor.router
         value_template: >-
           {% if is_state('binary_sensor.router', 'on') %}
             100
@@ -183,7 +180,7 @@ sensor:
 
       switch_state:
         friendly_name: Core Switch
-        entity_id: binary_sensor.switch
+        unique_id: binary_sensor.switch
         value_template: >-
           {% if is_state('binary_sensor.switch', 'on') %}
               100
@@ -193,7 +190,7 @@ sensor:
 
       ap_state:
         friendly_name: Access Point
-        entity_id: binary_sensor.ap
+        unique_id: binary_sensor.ap
         value_template: >-
           {% if is_state('binary_sensor.ap', 'on') %}
               100
@@ -203,22 +200,32 @@ sensor:
 
       soundwave_state:
         friendly_name: Soundwave Server
-        entity_id: binary_sensor.soundwave
+        unique_id: binary_sensor.soundwave
         value_template: >-
           {% if is_state('binary_sensor.soundwave', 'on') %}
               100
           {% elif is_state('binary_sensor.soundwave', 'off') %}
-            0
+              0
           {% endif %}
                 
       shockwave_state:
         friendly_name: Shockwave Server
-        entity_id: binary_sensor.shockwave
+        unique_id: binary_sensor.shockwave
         value_template: >-
           {% if is_state('binary_sensor.shockwave', 'on') %}
               100
           {% elif is_state('binary_sensor.shockwave', 'off') %}
-            0
+              0
+          {% endif %}
+
+      vortex_state:
+        friendly_name: Vortex Server
+        unique_id: binary_sensor.vortex
+        value_template: >-
+          {% if is_state('binary_sensor.shockwave', 'on') %}
+              100
+          {% elif is_state('binary_sensor.shockwave', 'off') %}
+              0
           {% endif %}
 #################################################################
 #                                                               #

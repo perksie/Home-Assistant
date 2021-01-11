@@ -59,7 +59,7 @@ views:
               
               - aspect_ratio: 1/1
                 color: 'rgb(28, 128, 199)'
-                entity: light.baby_room_light
+                entity: light.3d_printer_light
                 name: 3D Printer
                 hold_action:
                   action: more-info
@@ -442,8 +442,61 @@ views:
           type: horizontal-stack
         type: vertical-stack
 
-
   - id: 5
+    name: Cameras
+    icon: mdi:camera
+    cards:
+      - cards:
+        - color_type: icon
+          name: Driveway
+          template: button-card-headers
+          type: 'custom:button-card'
+        - cards:
+          - aspect_ratio: 56%
+            camera_view: live
+            entity: camera.snv_5084_h_264
+            type: picture-entity
+          type: horizontal-stack
+        type: vertical-stack
+      - cards:
+        - color_type: icon
+          name: Patio
+          template: button-card-headers
+          type: 'custom:button-card'
+        - cards:
+          - aspect_ratio: 56%
+            camera_view: live
+            entity: camera.patio
+            type: picture-entity
+          type: horizontal-stack
+        type: vertical-stack
+      - cards:
+        - color_type: icon
+          name: Garage
+          template: button-card-headers
+          type: 'custom:button-card'
+        - cards:
+          - camera_view: live
+            type: picture-entity
+            entity: camera.blueiris_garage
+            #aspect_ratio: 56%
+          type: horizontal-stack
+        type: vertical-stack
+      - cards:
+        - color_type: icon
+          name: Front Door
+          template: button-card-headers
+          type: 'custom:button-card'
+        - cards:
+          - camera_view: live
+            type: picture-entity
+            entity: camera.blueiris_front_door
+            #aspect_ratio: 56%
+          type: horizontal-stack
+        type: vertical-stack
+
+
+  - id: 6
     name: System
     icon: mdi:cog
     cards:
@@ -576,7 +629,7 @@ views:
                   to: 4
               entities:
                 - entity: sensor.router_state
-                  title: Router
+                  title: Blackout
                   positions:
                     value: off
                     icon: off
@@ -591,12 +644,17 @@ views:
                     value: off
                     icon: off
                 - entity: sensor.soundwave_state
-                  title: Soundwave Server
+                  title: Soundwave
                   positions:
                     value: off
                     icon: off
                 - entity: sensor.shockwave_state
-                  title: Shockwave Server
+                  title: Shockwave
+                  positions:
+                    value: off
+                    icon: off
+                - entity: sensor.vortex_state
+                  title: Vortex
                   positions:
                     value: off
                     icon: off

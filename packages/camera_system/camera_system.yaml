@@ -1,0 +1,38 @@
+#################################################################
+#                                                               #
+#                           Camera                              #
+#                                                               #
+#################################################################
+
+camera:
+  - platform: generic
+    stream_source: rtsp://192.168.50.51/axis-media/media.amp?streamprofile=Bandwidth
+    username: !secret camlogin
+    password: !secret campassword
+    name: patio
+    still_image_url: http://address/path.jpg
+
+
+
+
+#################################################################
+#                                                               #
+#                     Camera detection                          #
+#                                                               #
+#################################################################
+
+binary_sensor:
+  - platform: mqtt
+    name: "Garage"
+    device_class: motion
+    state_topic: "BlueIris/garage"
+    payload_on: "ON"
+    payload_off: "OFF"
+    off_delay: 10
+  - platform: mqtt
+    name: "Entrance"
+    device_class: motion
+    payload_on: "ON"
+    payload_off: "OFF"
+    state_topic: "BlueIris/entrance"
+    off_delay: 10

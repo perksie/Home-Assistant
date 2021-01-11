@@ -17,15 +17,17 @@ notify:
       data:
         target: !secret discordtarget
 
+
+  - name: iphones
+    platform: group
+    services:
+      - service: mobile_app_bens_iphone
+      - service: mobile_app_renee
+
 #################################################################
 #                                                               #
 #                           Group                               #
 #                                                               #
 #################################################################
 
-group:
-  all_google:
-    name: All Google devices
-    entities:
-      - media_player.den_speaker
-      - media_player.office_speaker
+
