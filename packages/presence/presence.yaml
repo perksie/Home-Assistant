@@ -14,8 +14,8 @@ sensor:
       value_template: >-
         {% if is_state('device_tracker.bens_iphone', 'home') %}
           Home
-        {% elif is_state('device_tracker.bens_iphone', 'work') %}
-          work
+        {% elif is_state('device_tracker.bens_iphone', 'Work') %}
+          Work
         {% elif is_state('device_tracker.bens_iphone', 'Parents') %}
           Parents House
         {% else %}
@@ -41,12 +41,13 @@ sensor:
 #################################################################
 
 device_tracker:
-  - platform: iphonedetect
-    consider_home: 60
-    new_device_defaults:
-      track_new_devices: true
-    hosts:
-      iphoneben: 192.168.100.11
+#  - platform: iphonedetect
+#    consider_home: 60
+#    new_device_defaults:
+#      track_new_devices: true
+#    hosts:
+#      iphoneben: 192.168.100.11
+
 ####################################################
 #                                                  #
 #                       Ping                       #
@@ -59,7 +60,15 @@ device_tracker:
       mediapc: 192.168.100.44
 
 
+####################################################
+#                                                  #
+#               Device Track - NMAP                #
+#                                                  #
+####################################################
 
+#  - platform: nmap_tracker
+#    hosts:
+#      - 192.168.5.0/24
 
 
 #################################################################
