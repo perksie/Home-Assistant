@@ -26,46 +26,61 @@ ota:
 
 
 
-light:
-  - platform: fastled_clockless
-    chipset: WS2811
-    pin: D1
-    num_leds: 120
-    rgb_order: BRG
-    default_transition_length: 1s
-    name: "Bed Back Board"
+#light:
+#  - platform: fastled_clockless
+#    chipset: WS2811
+#    pin: D1
+#    num_leds: 120
+#    rgb_order: BRG
+#    default_transition_length: 1s
+#    name: "Bed Back Board"
 #sensor:
 #  - platform: pulse_counter
 #    pin:
 #      number: D7
 #      mode: INPUT_PULLUP   
 #    unit_of_measurement: 'mm'
+#    internal_filter: 15us
 #    name: "${friendly_name} Rainfall"
 #    filters:
-#      - debounce: 0.1s
-# opp:4,9x110mm, 200ml -> 101 pulses. 1mm rainfall = 5,39 ml. 1ml = 0,1855 mm. 1 pulse = 1,98 ml. 1 pulse = 0,367 mm rainfall.  
+#      - debounce: 1s
 #      - multiply: 0.367
+# This looks to be the final code for rain sensor. Just need to check the .367mm
 
 #sensor:
 #  - platform: pulse_counter
 #    pin:
-#      number: D8
+#      number: D7
 #      inverted: True
 #      mode: INPUT_PULLUP    
 #    unit_of_measurement: 'km/h'
 #    name: 'Windspeed'
-#    update_interval: 10s
+#    update_interval: 60s
+#    count_mode:
+#      rising_edge: DISABLE
+#      falling_edge: INCREMENT
+#    internal_filter: 15us
 #    filters:
-#     lambda: return x * 0.458 / 60 * 3.6;
-     
+      #- sliding_window_moving_average:
+      #    window_size: 4
+      #    send_every: 1
+      #- lambda: return x * 0.458 / 60 * 3.6;
+#      - multiply: 0.055578
+#      - multiply: 3.6 #convert m/s to hm/h
+      
+      #This I am happy with.. maybe some further testing? Don't think gust would be possible
 #sensor:
 #  - platform: adc
 #    pin: A0
 #    name: "Wind Direction"
-#    update_interval: 5s
+#    update_interval: 20s
+#    internal: true
+#    accuracy_decimals: 3
 #    filters:
-#      - lambda: |-
-#          return (x / 10000.0);
+    #  - lambda: |-
+    #      return (x / 10000.0);
+    #   - multiply: 3.3 ##built into Wemos
+    #   - multiply: 0.0009775171   #1/1023
           
 
 #  - platform: resistance
@@ -73,21 +88,27 @@ light:
 #    configuration: DOWNSTREAM
 #    resistor: 10kOhm
 #    name: Resistance Sensor
+#    accuracy_decimals: 1
+#    filters:
+#      - heartbeat: 30s
+#This is as close as I could get it but was not happy with the results. too spiradic.
 
-#### Reed swtich for garage ###
-#binary_sensor:
-#  - platform: gpio
-#    pin:
-#      number: D2
-#      mode: INPUT_PULLUP
-#    name: "Living Room Window"
-#    device_class: door
-##relay switch for garage    
-#switch:
-#  - platform: gpio
-#    name: "Relay"
-#    pin: D4
+##BME280
+i2c:
+  sda: D2
+  scl: D1
 
+sensor:
+  - platform: bme280
+    temperature:
+      name: "BME280 Temperature"
+      oversampling: 16x
+    pressure:
+      name: "BME280 Pressure"
+    humidity:
+      name: "BME280 Humidity"
+    address: 0x76
+    update_interval: 30s
 #light:
 #  - platform: rgb
 #    name: "test Lights"
