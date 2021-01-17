@@ -136,6 +136,13 @@ binary_sensor:
 sensor:
 
 
+  - platform: pfsense_gateways
+    host: 192.168.100.1
+    name: pfSense gateway
+    key: !secret pfsense
+    monitored_gateway_interfaces:
+      - wan
+
 ####################################################
 #                                                  #
 #                 Sensor - Uptime                  #
@@ -350,3 +357,12 @@ automation:
     - service: script.attention
       data:
         message: 'VPN connection has dropped.'
+
+
+#################################################################
+#                                                               #
+#                         Playground                            #
+#                                                               #
+#################################################################
+
+
