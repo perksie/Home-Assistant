@@ -10,7 +10,7 @@ garbage_collection:
     frequency: "weekly"
     collection_days: mon
   - name: Recycle
-    frequency: "odd-weeks"
+    frequency: "even-weeks"
     collection_days: mon
   - name: Patch
     frequency: "monthly"
