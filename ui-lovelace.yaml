@@ -284,7 +284,7 @@ views:
     cards:
       - cards:
           - type: alarm-panel
-            entity: alarm_control_panel.home_alarm
+            entity: alarm_control_panel.alarmo
             states:
               - arm_home
               - arm_away
@@ -629,7 +629,7 @@ views:
                   to: 4
               entities:
                 - entity: sensor.router_state
-                  title: Blackout
+                  title: Starscream
                   positions:
                     value: off
                     icon: off
@@ -655,6 +655,26 @@ views:
                     icon: off
                 - entity: sensor.vortex_state
                   title: Vortex
+                  positions:
+                    value: off
+                    icon: off
+                - entity: sensor.grimlock_state
+                  title: Grimlock
+                  positions:
+                    value: off
+                    icon: off
+                - entity: sensor.skywarp_state
+                  title: Skywarp
+                  positions:
+                    value: off
+                    icon: off
+                - entity: sensor.silverbolt_state
+                  title: Silverbolt
+                  positions:
+                    value: off
+                    icon: off
+                - entity: sensor.slingshot_state
+                  title: Slingshot
                   positions:
                     value: off
                     icon: off

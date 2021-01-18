@@ -35,7 +35,7 @@ automation:
   alias: Announce the alarm is being armed
   trigger:
   - platform: state
-    entity_id: alarm_control_panel.home_alarm
+    entity_id: alarm_control_panel.alarmo
     from: 'disarmed'
     to: 'pending'
   action:
@@ -47,7 +47,7 @@ automation:
   alias: House alarm has been triggered
   trigger:
   - platform: state
-    entity_id: alarm_control_panel.home_alarm
+    entity_id: alarm_control_panel.alarmo
     to: triggered
   action:
   - service: notify.iphones
@@ -65,7 +65,7 @@ automation:
   alias: Cancel an active house alarm
   trigger:
   - platform: state
-    entity_id: alarm_control_panel.home_alarm
+    entity_id: alarm_control_panel.alarmo
     from: 'triggered'
     to: 'disarmed'
   action:
