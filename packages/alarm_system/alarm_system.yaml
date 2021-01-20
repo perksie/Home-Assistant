@@ -19,7 +19,42 @@ alarm_control_panel:
       arming_time: 0
       delay_time: 0
 
+#################################################################
+#                                                               #
+#                          Scripts                              #
+#                                                               #
+#################################################################
 
+scripts:
+
+  arm_alarm:
+    sequence:
+      - service: media_player.volume_set
+        entity_id: group.all_google
+        data_template:
+            volume_level: 0.0
+      - delay:
+          seconds: 1
+      - service: media_player.turn_on
+        data:
+          entity_id: group.all_google
+      - service: media_player.volume_set
+        entity_id: group.all_google
+        data_template:
+          volume_level: 0.6
+      - delay:
+          seconds: 1
+      - service: media_player.play_media
+        data:
+          entity_id: group.all_google
+          media_content_id: !secret armtone
+          media_content_type: 'audio/mp3'
+      - delay:
+          seconds: 3
+      - service: tts.google_translate_say
+        entity_id: group.all_google
+        data_template:
+          message: '{{ message }}'
 
 
 

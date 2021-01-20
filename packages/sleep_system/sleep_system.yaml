@@ -1,7 +1,3 @@
-
-
-
-
 switch:
 - platform: template
   switches:
@@ -13,3 +9,37 @@ switch:
       turn_off:
         service: script.turn_on
         entity_id: script.stop_sleep_music
+
+
+#################################################################
+#                                                               #
+#                          Scripts                              #
+#                                                               #
+#################################################################
+
+scripts:
+
+
+  play_sleep_music:
+    alias: "Sleep Music"
+    sequence:
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.main_bedroom_speaker
+          volume_level: 0.40
+      - service: media_player.play_media
+        entity_id: media_player.main_bedroom_speaker
+        data:
+          media_content_id: http://192.168.50.2:8123/local/rain.mp3
+          media_content_type: "audio/mp3"
+      - service: media_player.play_media
+        entity_id: media_player.office_speaker
+        data:
+          media_content_id: http://192.168.50.2:8123/local/rain.mp3
+          media_content_type: "audio/mp3"
+
+  stop_sleep_music:
+    alias: "Stop Sleep Music"
+    sequence:
+      - service: media_player.media_stop
+        entity_id: media_player.main_bedroom_speaker
