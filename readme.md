@@ -51,7 +51,7 @@ This is my smart home. A continuous work in progress I'm sure you can all relate
   </tr>
   <tr>
     <td><a href="https://commerce.boschsecurity.com/au/en/Blue-Line-Gen2-PIR-Motion-Detectors/p/2602384139/" target="_blank" rel="noopener noreferrer">Bosch Blue Line Gen 2 Pet FriendlyTriTech Motion Detector</a><br>
-    <img src="https://github.com/perksie/Home-Assistant/blob/master/img/alarm_system/motionsensor.jpg?raw=true" width="216" height="163"></td>
+    <img src="https://github.com/perksie/Home-Assistant/blob/master/img/alarm_system/motionsensor.jpg?raw=true" width="165" height="180"></td>
     <td>2</td>
     <td>Hardwired to Konnected Pro</td>
     <td>Perfect for house pets that don't trip the alarm</td>
