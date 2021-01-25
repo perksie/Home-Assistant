@@ -15,8 +15,8 @@ I 3D printed this <a href="https://www.thingiverse.com/thing:4097960">Miniature 
 </thead>
 <tbody>
   <tr>
-    <td><img src="https://hackster.imgix.net/uploads/attachments/405477/wemos-d1-mini.jpg?auto=compress%2Cformat&w=900&h=675&fit=min" alt="Image" width="216" height="163"></td>
-    <td><img src="https://files.readme.io/a1f6e99-www_electronics-diy_com_store_RGB_LED_Common_Anode_5mm_jpg.png" width="216" height="163"></td>
+    <td><img src="https://github.com/perksie/Home-Assistant/img/trash_recycle/wemosD1.jpg" alt="Image" width="216" height="163"></td>
+    <td><img src="https://github.com/perksie/Home-Assistant/img/trash_recycle/diode.jpg" width="216" height="163"></td>
   </tr>
 </tbody>
 </table>

@@ -8,7 +8,7 @@ Additionally, contact me:
 <p align="center">
 <img src="https://img.shields.io/maintenance/yes/2021"/>
 <img src="https://img.shields.io/github/commit-activity/m/perksie/Home-Assistant"/>
-<img src="https://img.shields.io/badge/HA--Version-2020.12.2-brightgreen.svg"/>
+<img src="https://img.shields.io/badge/HA--Version-2020.12.7-brightgreen.svg"/>
 </p>
 <p align="center">
 This is my smart home. A continuous work in progress I'm sure you can all relate to. To Begin, the following methods of automation have been through a criterion of integration. This criterion is:</p>
@@ -27,7 +27,7 @@ This is my smart home. A continuous work in progress I'm sure you can all relate
 <p> I don't live alone. Home automation needs to better our lives at best by still remaining functional and speedy. I don't expect my family members to whip out their phones and open the app to turn the light on when there is a switch that does it way quicker with the same outcome. I try to look for ways to automate that process. For example, a motion sensor will turn the light on if after 5PM.</p> <br>
 
 <p align="center">
-| [Network Topology](https://github.com/perksie/Home-Assistant#network-topology) | [Hardware](https://github.com/perksie/Home-Assistant#hardware) | [Lighting](https://github.com/perksie/Home-Assistant#lighting) | [Security](https://github.com/perksie/Home-Assistant#security)
+|<a href="https://github.com/perksie/Home-Assistant#network-topology">[Network Topology]</a> | <a href="https://github.com/perksie/Home-Assistant#hardware">[Hardware]</a> | <a href="https://github.com/perksie/Home-Assistant#lighting">[Lighting]</a> | <a href="https://github.com/perksie/Home-Assistant#security">[Security]</a>
 </p>
 <br>
 
