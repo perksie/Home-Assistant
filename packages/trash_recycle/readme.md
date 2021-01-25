@@ -15,8 +15,8 @@ I 3D printed this <a href="https://www.thingiverse.com/thing:4097960">Miniature 
 </thead>
 <tbody>
   <tr>
-    <td><img src="https://github.com/perksie/Home-Assistant/img/trash_recycle/wemosD1.jpg" alt="Image" width="216" height="163"></td>
-    <td><img src="https://github.com/perksie/Home-Assistant/img/trash_recycle/diode.jpg" width="216" height="163"></td>
+    <td><img src="https://github.com/perksie/Home-Assistant/blob/master/img/trash_recycle/wemosD1.jpg?raw=true" width="216" height="163"></td>
+    <td><img src="https://github.com/perksie/Home-Assistant/blob/master/img/trash_recycle/diode.jpg?raw=true" width="216" height="163"></td>
   </tr>
 </tbody>
 </table>
