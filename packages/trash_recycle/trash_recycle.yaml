@@ -4,15 +4,15 @@
 #                                                               #
 #################################################################
 
-garbage_collection:
-  sensors:
-  - name: Waste
-    frequency: "weekly"
-    collection_days: mon
-  - name: Recycle
-    frequency: "odd-weeks"
-    collection_days: mon
-  - name: Patch
-    frequency: "monthly"
-    collection_days: wed
-    weekday_order_number: 2
+#garbage_collection:
+#  sensors:
+#    - name: Waste
+#      frequency: "weekly"
+#      collection_days: mon
+#    - name: Recycle
+#      frequency: "odd-weeks"
+#      collection_days: mon
+#    - name: Patch
+#      frequency: "monthly"
+#      collection_days: wed
+#      weekday_order_number: 2

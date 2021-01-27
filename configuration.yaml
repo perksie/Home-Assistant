@@ -52,6 +52,5 @@ recorder:
   purge_keep_days: 5
 
 google_assistant: !include includes/gassistant.yaml
-scene: !include scenes.yaml
 zone: !include includes/zones.yaml
 

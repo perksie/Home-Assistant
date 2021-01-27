@@ -26,9 +26,8 @@ button_card_templates:
         - font-size: 14px
 
 views:
-  - id: 0
-    icon: mdi:castle
-    name: Home
+  - icon: mdi:castle
+    title: Home
     cards:
       - cards:
           - color_type: icon
@@ -168,6 +167,9 @@ views:
                   entities:
                     - entity: sensor.ben
                     - type: divider
+                      style:
+                        height: 1px
+                        background-color: var(–divider-color)
                     - entity: sensor.bens_iphone_battery_level
                       name: Battery level
                 - type: entities
@@ -175,6 +177,9 @@ views:
                   entities:
                     - entity: sensor.renee
                     - type: divider
+                      style:
+                        height: 1px
+                        background-color: var(–divider-color)
                     - entity: sensor.renee_battery_level_2
                       name: Battery level
             type: horizontal-stack
@@ -277,10 +282,8 @@ views:
 
 
 
-
-  - id: 1
-    icon: mdi:shield-home
-    name: Alarm Panel
+  - icon: mdi:shield-home
+    title: Alarm Panel
     cards:
       - cards:
           - type: alarm-panel
@@ -306,8 +309,7 @@ views:
         type: vertical-stack
 
 
-  - id: 3
-    name: Covid 19
+  - title: Covid 19
     icon: mdi:virus
     cards:
       - cards:
@@ -378,8 +380,8 @@ views:
           type: horizontal-stack
         type: vertical-stack
 
-  - id: 4
-    name: 3D Printer
+
+  - title: 3D Printer
     icon: mdi:printer-3d-nozzle
     cards:
       - cards:
@@ -442,8 +444,8 @@ views:
           type: horizontal-stack
         type: vertical-stack
 
-  - id: 5
-    name: Cameras
+
+  - title: Cameras
     icon: mdi:camera
     cards:
       - cards:
@@ -496,8 +498,8 @@ views:
         type: vertical-stack
 
 
-  - id: 6
-    name: System
+
+  - title: System
     icon: mdi:cog
     cards:
       - cards:
@@ -559,6 +561,20 @@ views:
                 - value: 13
                   color: "#3498db"
           type: horizontal-stack
+        - cards:
+          - color_type: icon
+            name: Kill Switch
+            template: button-card-headers
+          type: 'custom:button-card'
+        - cards:
+          - aspect_ratio: 1/1
+            color: 'rgb(28, 128, 199)'
+            entity:
+            name: Kids Internet
+            icon: mdi:tablet-android
+            template: button-card-main
+            type: 'custom:button-card'
+          type: horizontal-stack
         type: vertical-stack    
 
       - cards:
@@ -586,6 +602,8 @@ views:
                 - value: 40
                   color: "#0C88DB"
           type: horizontal-stack
+
+
 
 
         - color_type: icon

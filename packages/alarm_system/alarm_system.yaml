@@ -25,7 +25,7 @@ alarm_control_panel:
 #                                                               #
 #################################################################
 
-scripts:
+script:
 
   arm_alarm:
     sequence:

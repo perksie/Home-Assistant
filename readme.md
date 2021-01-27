@@ -8,7 +8,7 @@ Additionally, contact me:
 <p align="center">
 <img src="https://img.shields.io/maintenance/yes/2021"/>
 <img src="https://img.shields.io/github/commit-activity/m/perksie/Home-Assistant"/>
-<img src="https://img.shields.io/badge/HA--Version-2020.12.7-brightgreen.svg"/>
+<img src="https://img.shields.io/badge/HA--Version-2021.1.5-brightgreen.svg"/>
 </p>
 <p align="center">
 This is my smart home. A continuous work in progress I'm sure you can all relate to. To Begin, the following methods of automation have been through a criterion of integration. This criterion is:</p>
@@ -17,7 +17,7 @@ This is my smart home. A continuous work in progress I'm sure you can all relate
 - Must have local control and not rely on cloud integration.<br>
 - Must be family friendly</b><br></p>
 
-<p align="center">Without meeting the criteria, it won't make it into household production.</p>
+<p align="center">Without meeting the criteria, it won't make it into household 'production'.</p>
 
 <p align="center">To further explain this criteria:<br></p>
 <i>Must have local control</i><br>
@@ -50,7 +50,7 @@ This is my smart home. A continuous work in progress I'm sure you can all relate
     <td>So far this has been great</td>
   </tr>
   <tr>
-    <td><a href="https://commerce.boschsecurity.com/au/en/Blue-Line-Gen2-PIR-Motion-Detectors/p/2602384139/" target="_blank" rel="noopener noreferrer">Bosch Blue Line Gen 2 Pet FriendlyTriTech Motion Detector</a><br>
+    <td><a href="https://commerce.boschsecurity.com/au/en/Blue-Line-Gen2-PIR-Motion-Detectors/p/2602384139/" target="_blank" rel="noopener noreferrer">Bosch Blue Line Gen 2 Pet Friendly Motion Detector</a><br>
     <img src="https://github.com/perksie/Home-Assistant/blob/master/img/alarm_system/motionsensor.jpg?raw=true" width="165" height="180"></td>
     <td>2</td>
     <td>Hardwired to Konnected Pro</td>
