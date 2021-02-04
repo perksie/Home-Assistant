@@ -26,7 +26,11 @@ script:
       - service: media_player.volume_set
         data_template:
           entity_id: media_player.main_bedroom_speaker
-          volume_level: 0.40
+          volume_level: 0.4
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.office_speaker
+          volume_level: 0.4
       - service: media_player.play_media
         entity_id: media_player.main_bedroom_speaker
         data:

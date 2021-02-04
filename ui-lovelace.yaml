@@ -15,9 +15,9 @@ button_card_templates:
     styles:
       card:
         - text-transform: uppercase
-        - font-size: 150%
-        - font-weight: 100
-        - letter-spacing: 10px
+        - font-size: 140%
+        - font-weight: 200
+        - letter-spacing: 9px
       template: header
 
   button-card-main:
@@ -565,11 +565,12 @@ views:
           - color_type: icon
             name: Kill Switch
             template: button-card-headers
-          type: 'custom:button-card'
+            type: 'custom:button-card'
+          type: horizontal-stack
         - cards:
           - aspect_ratio: 1/1
             color: 'rgb(28, 128, 199)'
-            entity:
+            entity: input_boolean.kinder_control
             name: Kids Internet
             icon: mdi:tablet-android
             template: button-card-main
@@ -579,31 +580,101 @@ views:
 
       - cards:
         - color_type: icon
-          name: Ad Block
+          name: WAN Connection
           template: button-card-headers
           type: 'custom:button-card'
         - cards:
-            - type: 'custom:mini-graph-card'
-              entities:
-                - sensor.pi_hole_ads_blocked_today
-              height: 50
-              line-width: 2
-              font-size: 70
-              hours_to_show: 168
-              group_by: date
-              #points_per_hour: 5
-              align_state: center
-              show:
-                fill: true
-                graph: bar
-              color_thresholds:
-                - value: 0
-                  color: "#FFFF00"
-                - value: 40
-                  color: "#0C88DB"
+          - type: 'custom:button-card'
+            entity: 'sensor.pfsense_gateway_wan_dhcp'
+            icon: mdi:raspberry-pi
+            aspect_ratio: 3/1
+            name: Starscream
+            styles:
+              card:
+                - border-radius: 10%
+                - padding: 8%
+                #- color: ivory
+                - font-size: 14px
+                - text-shadow: 0px 0px 5px black
+                - text-transform: capitalize
+              grid:
+                - grid-template-areas: '"i i" "n n" "delay delay" "loss loss"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              name:
+                - font-weight: bold
+                - font-size: 13px
+                - color: white
+                - align-self: middle
+                - justify-self: start
+                - padding-bottom: 4px
+              img_cell:
+                - justify-content: start
+                - align-items: start
+                - margin: none
+              icon:
+                - width: 70%
+                - margin-top: 10%
+                #- color: >
+                #    [[[
+                #      if (entity.state == 'okay') return 'lime';
+                #      else return 'red';
+                #    ]]]
+              custom_fields:
+                delay:
+                  #- padding-bottom: 4px
+                  - align-self: middle
+                  - justify-self: start
+                  - --text-color-sensor: '[[[ if (states["sensor.pfsense_delay"].state > 30) return "red"; ]]]'
+                loss:
+                  - padding-bottom: 4px
+                  - align-self: middle
+                  - justify-self: start
+                  - --text-color-sensor: '[[[ if (states["sensor.pfsense_loss"].state > 1) return "red"; ]]]'
+            custom_fields:
+              delay: >
+                [[[
+                  return `<ha-icon
+                    icon="mdi:timer-sand-empty"
+                    style="width: 20px; height: 20px; color: #0C88DB;">
+                    </ha-icon><span>Delay: <span style="color: var(--text-color-sensor);">${states['sensor.pfsense_delay'].state}</span></span>`
+                ]]]
+              loss: > 
+                [[[
+                  return `<ha-icon
+                    icon="mdi:server-network"
+                    style="width: 20px; height: 20px; color: #0C88DB;">
+                    </ha-icon><span>Loss: <span style="color: var(--text-color-sensor);">${states['sensor.pfsense_loss'].state}</span></span>`
+                ]]]
           type: horizontal-stack
 
 
+        - cards:
+          - color_type: icon
+            name: Ad Block
+            template: button-card-headers
+            type: 'custom:button-card'
+          type: horizontal-stack
+        - cards:
+          - type: 'custom:mini-graph-card'
+            entities:
+              - sensor.pi_hole_ads_blocked_today
+            height: 50
+            line-width: 2
+            font-size: 70
+            hours_to_show: 168
+            group_by: date
+          #points_per_hour: 5
+            align_state: center
+            show:
+              fill: true
+              graph: bar
+            color_thresholds:
+              - value: 0
+                color: "#FFFF00"
+              - value: 40
+                color: "#0C88DB"
+          type: horizontal-stack
 
 
         - color_type: icon

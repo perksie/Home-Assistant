@@ -44,6 +44,15 @@ switch:
     mac: 00:23:24:66:e5:b1
     name: MediaPCwol
 
+#  - platform: template
+#    switches:
+#      KinderControl:
+#        turn_on:
+#          service: shell_command.turn_on_kinder_control
+#        turn_off:
+#          service: shell_command.turn_off_kinder_control
+
+
 ####################################################
 #                                                  #
 #                     PiHole                       #
@@ -127,11 +136,19 @@ binary_sensor:
 
 sensor:
   - platform: pfsense_gateways
-    host: 192.168.100.1
+    host: 192.168.100.1:1337
     name: pfSense gateway
     key: !secret pfsense
     monitored_gateway_interfaces:
       - wan
+
+
+  - platform: template
+    sensors:
+      pfsense_loss:
+        value_template: "{{ state_attr('sensor.pfsense_gateway_wan_dhcp', 'loss') }}"
+      pfsense_delay:
+        value_template: "{{ state_attr('sensor.pfsense_gateway_wan_dhcp', 'delay') }}"
 
   ####################################################
   #                                                  #
@@ -286,6 +303,26 @@ sensor:
 
 #################################################################
 #                                                               #
+#                        Input Boolean                          #
+#                                                               #
+#################################################################
+
+input_boolean:
+  kinder_control:
+    name: Control internet for kids devices
+
+#################################################################
+#                                                               #
+#                           Shell                               #
+#                                                               #
+#################################################################
+
+shell_command:
+  turn_on_kinder_control: 'ssh -F /config/ssh/config -i /config/ssh/id_rsa skrep@192.168.100.1 sudo easyrule block lan 192.168.100.61'
+  turn_off_kinder_control: 'ssh -F /config/ssh/config -i /config/.ssh/id_rsa skrep@192.168.100.1 sudo easyrule unblock lan 192.168.100.61'
+
+#################################################################
+#                                                               #
 #                          Scripts                              #
 #                                                               #
 #################################################################
@@ -329,6 +366,7 @@ script:
           seconds: 1
       - service: switch.turn_off
         entity_id: switch.renee_garage_relay_2
+
 
 #################################################################
 #                                                               #
@@ -383,11 +421,29 @@ automation:
       webhook_id: grafanaVPN
     condition:
       condition: time
-      after: "08:00:00"
+      after: "07:00:00"
     action:
       - service: script.attention
         data:
           message: "VPN connection has dropped."
+
+  - id: "KinderControlON"
+    alias: Control kids devices to the internet(ON)
+    trigger:
+      platform: state
+      entity_id: input_boolean.kinder_control
+      to: 'on'
+    action:
+      - service: shell_command.turn_on_kinder_control
+
+  - id: "KinderControlOFF"
+    alias: Control kids devices to the internet(OFF)
+    trigger:
+      platform: state
+      entity_id: input_boolean.kinder_control
+      to: 'off'
+    action:
+      - service: shell_command.turn_off_kinder_control
 #################################################################
 #                                                               #
 #                         Playground                            #
