@@ -103,3 +103,18 @@ automation:
     action:
       service: homeassistant.turn_on
       entity_id: group.downstairs
+
+  - id: "TESTBenArriveHome"
+    alias: Ben Arrives Home
+    trigger:
+      platform: state
+      entity_id: sensor.ben
+      from: 'Away'
+      to: 'Home'
+    action:
+      service: notify.mobile_app_bens_iphone
+      data:
+        message: "I see you arriving"
+        data:
+          push:
+            sound: 'SwTest1_Haptic.caf'
