@@ -32,6 +32,7 @@ binary_sensor:
     pin:
       number: D2
       mode: INPUT_PULLUP
+      inverted: True
     name: "Renee Garage Door"
     device_class: door
     

@@ -395,24 +395,24 @@ automation:
     action:
       service: script.garage_relay
 
-  - id: "Garage door check"
-    alias: Check how long garage door is open for
-    trigger:
-      platform: state
-      entity_id: binary_sensor.renee_garage_door_2
-      to: "on"
-      for:
-        minutes: 3
-    action:
-      - service: script.attention
-        data:
-          message: "Is there a reason the garage door is open?"
-      - service: notify.iphones
-        data:
-          message: "Is the garage door open for a reason?"
-          data:
-            push:
-              sound: attention-tone-new.wav
+#  - id: "Garage door check"
+#    alias: Check how long garage door is open for
+#    trigger:
+#      platform: state
+#      entity_id: binary_sensor.renee_garage_door_2
+#      to: "on"
+#      for:
+#        minutes: 3
+#    action:
+#      - service: script.attention
+#        data:
+#          message: "Is there a reason the garage door is open?"
+#      - service: notify.iphones
+#        data:
+#          message: "Is the garage door open for a reason?"
+#          data:
+#            push:
+#              sound: attention-tone-new.wav
 
   - id: "GrafanaVPN"
     alias: GrafanaVPN
