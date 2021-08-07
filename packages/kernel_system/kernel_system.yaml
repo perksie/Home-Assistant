@@ -43,6 +43,9 @@ switch:
   - platform: wake_on_lan
     mac: 00:23:24:66:e5:b1
     name: MediaPCwol
+  - platform: wake_on_lan
+    mac: 78:24:af:36:c9:0a
+    name: BenPC
 
 #  - platform: template
 #    switches:
