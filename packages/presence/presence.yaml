@@ -77,14 +77,10 @@ automation:
     alias: Downstairs lights off - presences detection
     trigger:
       platform: state
-      entity_id: binary_sensor.multisensor_motion
+      entity_id: binary_sensor.floor1
       to: "off"
       for:
         minutes: 3
-    condition:
-      condition: state
-      entity_id: device_tracker.mainpc
-      state: "not_home"
     action:
       service: homeassistant.turn_off
       entity_id: group.downstairs
@@ -93,7 +89,7 @@ automation:
     alias: Downstairs presences detection for lights
     trigger:
       platform: state
-      entity_id: binary_sensor.multisensor_motion
+      entity_id: binary_sensor.floor1
       from: "off"
       to: "on"
     condition:
