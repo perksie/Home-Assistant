@@ -10,4 +10,4 @@ group:
     name: All Google devices
     entities:
       - media_player.den_speaker
-      - media_player.office_speaker
+#      - media_player.office_speaker

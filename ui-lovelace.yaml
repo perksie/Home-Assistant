@@ -303,7 +303,7 @@ views:
               entities:
                 - binary_sensor.entrance
                 - binary_sensor.garage
-                - binary_sensor.multisensor_motion
+                - binary_sensor.floor2
                 - binary_sensor.floor1
           type: horizontal-stack
         type: vertical-stack
@@ -580,72 +580,16 @@ views:
 
       - cards:
         - color_type: icon
-          name: WAN Connection
+          name: WoL
           template: button-card-headers
           type: 'custom:button-card'
         - cards:
           - type: 'custom:button-card'
-            entity: 'sensor.pfsense_gateway_wan_dhcp'
-            icon: mdi:raspberry-pi
-            aspect_ratio: 3/1
-            name: Starscream
-            styles:
-              card:
-                - border-radius: 10%
-                - padding: 8%
-                #- color: ivory
-                - font-size: 14px
-                - text-shadow: 0px 0px 5px black
-                - text-transform: capitalize
-              grid:
-                - grid-template-areas: '"i i" "n n" "delay delay" "loss loss"'
-                - grid-template-columns: 1fr
-                - grid-template-rows: 1fr min-content min-content
-              name:
-                - font-weight: bold
-                - font-size: 13px
-                - color: white
-                - align-self: middle
-                - justify-self: start
-                - padding-bottom: 4px
-              img_cell:
-                - justify-content: start
-                - align-items: start
-                - margin: none
-              icon:
-                - width: 70%
-                - margin-top: 10%
-                #- color: >
-                #    [[[
-                #      if (entity.state == 'okay') return 'lime';
-                #      else return 'red';
-                #    ]]]
-              custom_fields:
-                delay:
-                  #- padding-bottom: 4px
-                  - align-self: middle
-                  - justify-self: start
-                  - --text-color-sensor: '[[[ if (states["sensor.pfsense_delay"].state > 30) return "red"; ]]]'
-                loss:
-                  - padding-bottom: 4px
-                  - align-self: middle
-                  - justify-self: start
-                  - --text-color-sensor: '[[[ if (states["sensor.pfsense_loss"].state > 1) return "red"; ]]]'
-            custom_fields:
-              delay: >
-                [[[
-                  return `<ha-icon
-                    icon="mdi:timer-sand-empty"
-                    style="width: 20px; height: 20px; color: #0C88DB;">
-                    </ha-icon><span>Delay: <span style="color: var(--text-color-sensor);">${states['sensor.pfsense_delay'].state}</span></span>`
-                ]]]
-              loss: > 
-                [[[
-                  return `<ha-icon
-                    icon="mdi:server-network"
-                    style="width: 20px; height: 20px; color: #0C88DB;">
-                    </ha-icon><span>Loss: <span style="color: var(--text-color-sensor);">${states['sensor.pfsense_loss'].state}</span></span>`
-                ]]]
+            aspect_ratio: 1/1
+            name: Wake Ben PC
+            icon: mdi:desktop-classic
+            entity: switch.BenPC
+            template: button-card-main
           type: horizontal-stack
 
 

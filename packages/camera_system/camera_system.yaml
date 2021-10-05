@@ -29,10 +29,3 @@ binary_sensor:
     payload_on: "ON"
     payload_off: "OFF"
     off_delay: 10
-  - platform: mqtt
-    name: "Entrance"
-    device_class: motion
-    payload_on: "ON"
-    payload_off: "OFF"
-    state_topic: "BlueIris/entrance"
-    off_delay: 10
