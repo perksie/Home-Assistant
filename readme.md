@@ -8,7 +8,7 @@ Additionally, contact me:
 <p align="center">
 <img src="https://img.shields.io/maintenance/yes/2021"/>
 <img src="https://img.shields.io/github/commit-activity/m/perksie/Home-Assistant"/>
-<img src="https://img.shields.io/badge/HA--Version-2021.1.5-brightgreen.svg"/>
+<img src="https://img.shields.io/badge/HA--Version-2021.2.3-brightgreen.svg"/>
 </p>
 <p align="center">
 This is my smart home. A continuous work in progress I'm sure you can all relate to. To Begin, the following methods of automation have been through a criterion of integration. This criterion is:</p>
@@ -64,7 +64,9 @@ This is my smart home. A continuous work in progress I'm sure you can all relate
 <td>Wi-Fi</td>
 <td>Going forward, these are my goto for LED strips</td>
 </tr>
-
+</tbody>
+</table>
+<br>
 
 #### Security <a name="security" href="https://github.com/perksie/Home-Assistant#security"></a>
 
