@@ -45,21 +45,21 @@ This is my smart home. A continuous work in progress I'm sure you can all relate
 <tbody>
 <tr>
 <td><a href="https://yeelight.net.au/products/xiaomi-yeelight-smart-led-wifi-tune-able-colour-bulb"target="_blank" rel="noopener noreferrer">Yeelight RGB Bulbs</a><br>
-<img src="https://github.com/perksie/Home-Assistant/blob/master/img/lighting_system/yeelightrgb.jpg?raw=true" width="300" height ="180"></td>
+<img src="https://github.com/perksie/Home-Assistant/blob/master/img/lighting_system/yeelightrgb.jpg?raw=true" width="400" height ="180"></td>
 <td>4</td>
 <td>Wi-Fi</td>
 <td>I bought the earlier versions of the depicted model here for about $15 AUD at the time. Blown away by how well these shine! Would probably buy these at today's prices.</td>
 </tr>
 <tr>
 <td><a href="https://yeelight.net.au/products/yeelight-lightstrip-1s-2m"target="_blank" rel="noopener noreferrer">Yeelight RGB Strip</a><br>
-<img src="https://github.com/perksie/Home-Assistant/blob/master/img/lighting_system/yeelightstrip.jpg?raw=true" width="300" height ="180"></td>
+<img src="https://github.com/perksie/Home-Assistant/blob/master/img/lighting_system/yeelightstrip.jpg?raw=true" width="400" height ="180"></td>
 <td>1</td>
 <td>Wi-Fi</td>
 <td>These were a disappointing purchase. Not enough LEDs.</td>
 </tr>
 <tr>
 <td><a href="https://www.aliexpress.com/item/4001331197520.html?spm=a2g0o.productlist.0.0.288d3e9dOPkaGb&algo_pvid=bff3a314-4288-43be-836b-ee079f92b092&algo_exp_id=bff3a314-4288-43be-836b-ee079f92b092-5&pdp_ext_f=%7B%22sku_id%22%3A%2212000024133823733%22%7D"target="_blank" rel="noopener noreferrer">WS2811 Strip</a><br>
-<img src="https://github.com/perksie/Home-Assistant/blob/master/img/lighting_system/ws2811.jpg?raw=true" width="300" height ="180"></td>
+<img src="https://github.com/perksie/Home-Assistant/blob/master/img/lighting_system/ws2811.jpg?raw=true" width="400" height ="180"></td>
 <td>4+</td>
 <td>Wi-Fi</td>
 <td>Going forward, these are my goto for LED strips</td>
