@@ -55,7 +55,7 @@ This is my smart home. A continuous work in progress I'm sure you can all relate
 <img src="https://github.com/perksie/Home-Assistant/blob/master/img/lighting_system/yeelightstrip.jpg?raw=true" width="400" height ="180"></td>
 <td>1</td>
 <td>Wi-Fi</td>
-<td>These were disappointing purchase. Not enough LEDs.</td>
+<td>These were a disappointing purchase. Not enough LEDs.</td>
 </tr>
 <tr>
 <td><a href="https://www.aliexpress.com/item/4001331197520.html?spm=a2g0o.productlist.0.0.288d3e9dOPkaGb&algo_pvid=bff3a314-4288-43be-836b-ee079f92b092&algo_exp_id=bff3a314-4288-43be-836b-ee079f92b092-5&pdp_ext_f=%7B%22sku_id%22%3A%2212000024133823733%22%7D"target="_blank" rel="noopener noreferrer">WS2811 Strip</a><br>
@@ -82,7 +82,7 @@ This is my smart home. A continuous work in progress I'm sure you can all relate
 <tbody>
   <tr>
     <td><a href="https://konnected.io/products/konnected-alarm-panel-pro-12-zone-kit" target="_blank" rel="noopener noreferrer">Konnected Pro (12 Zones)</a><br>
-    <img src="https://github.com/perksie/Home-Assistant/blob/master/img/alarm_system/konnectedpro.jpg?raw=true" width="200" height ="180"></td>
+    <img src="https://github.com/perksie/Home-Assistant/blob/master/img/alarm_system/konnectedpro.jpg?raw=true" width="300" height ="180"></td>
     <td>1</td>
     <td>Ethernet (PoE)</td>
     <td>So far this has been great</td>

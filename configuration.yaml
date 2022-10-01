@@ -7,7 +7,8 @@ default_config:
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 http:
-
+  use_x_forwarded_for: true
+  trusted_proxies: 192.168.50.1
 discovery:
 
 map:
