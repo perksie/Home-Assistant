@@ -6,9 +6,9 @@
 Additionally, contact me:
 <img src="https://img.shields.io/twitter/follow/perksie?style=social"/></h4><br>
 <p align="center">
-<img src="https://img.shields.io/maintenance/yes/2021"/>
+<img src="https://img.shields.io/maintenance/yes/2022"/>
 <img src="https://img.shields.io/github/commit-activity/m/perksie/Home-Assistant"/>
-<img src="https://img.shields.io/badge/HA--Version-2021.2.3-brightgreen.svg"/>
+<img src="https://img.shields.io/badge/HA--Version-2022.6.7-brightgreen.svg"/>
 </p>
 <p align="center">
 This is my smart home. A continuous work in progress I'm sure you can all relate to. To Begin, the following methods of automation have been through a criterion of integration. This criterion is:</p>
