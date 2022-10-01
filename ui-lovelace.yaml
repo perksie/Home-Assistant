@@ -91,7 +91,7 @@ views:
           - cards:
             - aspect_ratio: 1/1
               color: 'rgb(28, 128, 199)'
-              entity: switch.xiaomi_mi_smart_wifi_socket
+              entity: switch.night_light
               name: Night light
               icon: 'mdi:lightbulb-outline'
               state:
@@ -496,6 +496,18 @@ views:
             #aspect_ratio: 56%
           type: horizontal-stack
         type: vertical-stack
+      - cards:
+          - color_type: icon
+            name: Camera
+            template: button-card-headers
+            type: 'custom:button-card'
+          - cards:
+            - aspect_ratio: 56%
+              camera_view: live
+              entity: camera.blueiris_camera1
+              type: picture-entity
+            type: horizontal-stack
+        type: vertical-stack
 
 
 
@@ -630,10 +642,18 @@ views:
                 entity: sensor.home_assistant_v2_db
                 name: Database size
                 max: 150
+                severity:
+                  green: 70
+                  yellow: 90
+                  red: 95
               - type: gauge
                 entity: sensor.home_assistant_log
                 name: Log file size
                 max: 2
+                severity:
+                    green: 70
+                    yellow: 90
+                    red: 95
 
           type: horizontal-stack
         type: vertical-stack
