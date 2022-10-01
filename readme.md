@@ -97,5 +97,32 @@ This is my smart home. A continuous work in progress I'm sure you can all relate
 </tbody>
 </table>
 
+#### Wall plug <a name="wall plug" href="https://github.com/perksie/Home-Assistant#wallplug"></a>
+
+<table style="undefined;table-layout: fixed; width: 562px">
+<thead>
+  <tr>
+    <th>Device</th>
+    <th>Quantity</th>
+    <th>Connection</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+  <tbody>
+  <tr>
+    <td><a href="https://www.bunnings.com.au/arlec-white-grid-connect-smart-plug-in-socket-with-energy-meter_p0273367" target="_blank" rel="noopener noreferrer">Arlec Grid Connect Smart Wall Plug</a><br>
+    <img src="https://github.com/perksie/Home-Assistant/blob/master/img/alarm_system/konnectedpro.jpg?raw=true" width="300" height ="180"></td>
+    <td>4</td>
+    <td>Wi-Fi</td>
+    <td>More solid than the xioami wall plug</td>
+  </tr>
+  <tr>
+    <td><a href="https://xiaomi-mi.com/sockets-and-sensors/xiaomi-mi-smart-socket-plug/" target="_blank" rel="noopener noreferrer">Xiaomi Smart Wall Plug</a><br>
+    <img src="https://github.com/perksie/Home-Assistant/blob/master/img/alarm_system/konnectedpro.jpg?raw=true" width="300" height ="180"></td>
+    <td>4</td>
+    <td>Wi-Fi</td>
+    <td>More solid than the xioami wall plug</td>
+  </tbody>
+
 <br>
 <h3 align="center">:construction: Work in progress :construction:</h3>
