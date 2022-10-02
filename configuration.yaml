@@ -44,9 +44,6 @@ influxdb:
     entities:
       - sensor.multisensor_temperature
       - sensor.multisensor_brightness
-      - sensor.speedtest_download
-      - sensor.speedtest_ping
-      - sensor.speedtest_upload
 
 
 recorder:
