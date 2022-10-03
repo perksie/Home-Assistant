@@ -118,7 +118,7 @@ This is my smart home. A continuous work in progress I'm sure you can all relate
   </tr>
   <tr>
     <td><a href="https://xiaomi-mi.com/sockets-and-sensors/xiaomi-mi-smart-socket-plug/" target="_blank" rel="noopener noreferrer">Xiaomi Smart Wall Plug</a><br>
-    <img src="https://github.com/perksie/Home-Assistant/blob/master/img/xiaomiwallplug?raw=true" width="300" height ="180"></td>
+    <img src="https://github.com/perksie/Home-Assistant/blob/master/img/xiaomiwallplug.png?raw=true" width="300" height ="180"></td>
     <td>1</td>
     <td>Wi-Fi</td>
     <td>Overheats a little bit</td>
