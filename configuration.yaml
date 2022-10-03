@@ -45,7 +45,6 @@ influxdb:
       - sensor.multisensor_temperature
       - sensor.multisensor_brightness
 
-
 recorder:
   purge_keep_days: 5
 
