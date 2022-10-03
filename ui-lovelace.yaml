@@ -8,7 +8,8 @@ resources:
     type: module
   - url: /hacsfiles/bar-card/bar-card.js
     type: module
-
+  - url: /hacsfiles/alarmo-card/alarmo-card.js
+    type: module
 
 button_card_templates:
   button-card-headers:
@@ -286,13 +287,20 @@ views:
     title: Alarm Panel
     cards:
       - cards:
-          - type: alarm-panel
-            entity: alarm_control_panel.alarmo
+          - type: 'custom:alarmo-card'
+            entity: alarm_control_panel.master
             states:
-              - arm_home
-              - arm_away
-              - arm_night
-        type: vertical-stack
+              armed_home:
+                hide: false
+              armed_away:
+                hide: false
+                button_label: "Turn on"
+                state_label: "Enabled"
+              disarmed:
+                hide: false
+                button_label: "Turn off"
+                state_label: "Disabled"
+        type: horizontal-stack
       - cards:
         - color_type: icon
           name: Motion
@@ -301,8 +309,6 @@ views:
         - cards:
             - type: entities
               entities:
-                - binary_sensor.entrance
-                - binary_sensor.garage
                 - binary_sensor.floor2
                 - binary_sensor.floor1
           type: horizontal-stack
