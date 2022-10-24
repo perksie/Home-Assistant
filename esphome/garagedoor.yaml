@@ -27,14 +27,14 @@ ota:
   password: !secret esp
 
 
-binary_sensor:
-  - platform: gpio
-    pin:
-      number: D2
-      mode: INPUT_PULLUP
-      inverted: True
-    name: "Renee Garage Door"
-    device_class: door
+#binary_sensor:
+#  - platform: gpio
+#    pin:
+#      number: D3
+#      mode: INPUT_PULLUP
+#      inverted: True
+#    name: "Renee Garage Door"
+#    device_class: door
     
 switch:
   - platform: gpio
@@ -45,3 +45,19 @@ switch:
     name: "Ben Garage Relay"
     pin: D6
     
+##BME280
+i2c:
+  sda: D2
+  scl: D1
+
+sensor:
+  - platform: bme280
+    temperature:
+      name: "BME280 Temperature"
+      oversampling: 16x
+    pressure:
+      name: "BME280 Pressure"
+    humidity:
+      name: "BME280 Humidity"
+    address: 0x76
+    update_interval: 30s

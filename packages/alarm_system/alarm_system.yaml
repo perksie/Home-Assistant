@@ -41,7 +41,7 @@ script:
       - service: media_player.volume_set
         entity_id: group.all_google
         data_template:
-          volume_level: 0.6
+          volume_level: 0.8
       - delay:
           seconds: 1
       - service: media_player.play_media
@@ -70,9 +70,9 @@ automation:
   alias: Announce the alarm is being armed
   trigger:
   - platform: state
-    entity_id: alarm_control_panel.alarmo
+    entity_id: alarm_control_panel.home
     from: 'disarmed'
-    to: 'pending'
+    to: 'arming'
   action:
   - service: script.arm_alarm
     data:
@@ -82,7 +82,7 @@ automation:
   alias: House alarm has been triggered
   trigger:
   - platform: state
-    entity_id: alarm_control_panel.alarmo
+    entity_id: alarm_control_panel.home
     to: triggered
   action:
   - service: notify.iphones
@@ -92,7 +92,7 @@ automation:
       data:
         push:
           sound:
-            name: 'SwTest1_Haptic.caf'
+            name: 'ios-alarm.wav'
             critical: 1
             volume: 1.0
 
@@ -100,7 +100,7 @@ automation:
   alias: Cancel an active house alarm
   trigger:
   - platform: state
-    entity_id: alarm_control_panel.alarmo
+    entity_id: alarm_control_panel.home
     from: 'triggered'
     to: 'disarmed'
   action:

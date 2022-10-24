@@ -8,7 +8,8 @@ resources:
     type: module
   - url: /hacsfiles/bar-card/bar-card.js
     type: module
-
+  - url: /hacsfiles/alarmo-card/alarmo-card.js
+    type: module
 
 button_card_templates:
   button-card-headers:
@@ -286,13 +287,20 @@ views:
     title: Alarm Panel
     cards:
       - cards:
-          - type: alarm-panel
-            entity: alarm_control_panel.alarmo
+          - type: 'custom:alarmo-card'
+            entity: alarm_control_panel.home
             states:
-              - arm_home
-              - arm_away
-              - arm_night
-        type: vertical-stack
+              armed_home:
+                hide: false
+              armed_away:
+                hide: false
+                button_label: "Arm Away"
+                state_label: "Enabled"
+              disarmed:
+                hide: false
+                button_label: "Disarm"
+                state_label: "Disabled"
+        type: horizontal-stack
       - cards:
         - color_type: icon
           name: Motion
@@ -301,82 +309,8 @@ views:
         - cards:
             - type: entities
               entities:
-                - binary_sensor.entrance
-                - binary_sensor.garage
                 - binary_sensor.floor2
                 - binary_sensor.floor1
-          type: horizontal-stack
-        type: vertical-stack
-
-
-  - title: Covid 19
-    icon: mdi:virus
-    cards:
-      - cards:
-        - decimals: 0
-          entities:
-            - color: red
-              entity: sensor.covid_19_new_qld
-              name: New QLD Cases
-            - color: orange
-              entity: sensor.covid_19_new_nsw
-              name: New NSW Cases
-            - color: blue
-              entity: sensor.covid_19_new
-              name: New VIC Cases
-              show_state: true
-              y_axis: secondary
-          font_size: 90
-          height: 100
-          hours_to_show: 168
-          line_width: 2
-          lower_bound: 0
-          lower_bound_secondary: 0
-          name: Daily Cases by State
-          points_per_hour: 0.1
-          show:
-            extrema: false
-            fill: false
-            icon: false
-            labels: true
-            lables_secondary: true
-            name: true
-            points: false
-          smoothing: true
-          type: 'custom:mini-graph-card'
-        - cards:
-            - entity: sensor.covid_19_qld
-              name: Total Cases
-              type: entity
-            - attribute: deaths
-              entity: sensor.covid_19_qld
-              icon: 'mdi:emoticon-dead-outline'
-              name: Deaths
-              type: entity
-          type: horizontal-stack
-        - cards:
-            - attribute: active
-              entity: sensor.covid_19_qld
-              icon: 'mdi:thermometer'
-              name: Active
-              type: entity
-            - attribute: recovered
-              entity: sensor.covid_19_qld
-              icon: 'mdi:emoticon-happy-outline'
-              name: Recovered
-              type: entity
-          type: horizontal-stack
-        - cards:
-            - attribute: hospital
-              entity: sensor.covid_19_qld
-              icon: 'mdi:hospital-building'
-              name: Hospital Beds
-              type: entity
-            - attribute: icu
-              entity: sensor.covid_19_qld
-              icon: 'mdi:hospital'
-              name: Critical Condition
-              type: entity
           type: horizontal-stack
         type: vertical-stack
 

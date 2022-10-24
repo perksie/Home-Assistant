@@ -44,10 +44,9 @@ influxdb:
     entities:
       - sensor.multisensor_temperature
       - sensor.multisensor_brightness
-      - sensor.speedtest_download
-      - sensor.speedtest_ping
-      - sensor.speedtest_upload
-
+      - sensor.bme280_humidity_2
+      - sensor.bme280_pressure_2
+      - sensor.bme280_temperature_2
 
 recorder:
   purge_keep_days: 5

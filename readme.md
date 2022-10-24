@@ -6,9 +6,9 @@
 Additionally, contact me:
 <img src="https://img.shields.io/twitter/follow/perksie?style=social"/></h4><br>
 <p align="center">
-<img src="https://img.shields.io/maintenance/yes/2021"/>
+<img src="https://img.shields.io/maintenance/yes/2022"/>
 <img src="https://img.shields.io/github/commit-activity/m/perksie/Home-Assistant"/>
-<img src="https://img.shields.io/badge/HA--Version-2021.2.3-brightgreen.svg"/>
+<img src="https://img.shields.io/badge/HA--Version-2022.6.7-brightgreen.svg"/>
 </p>
 <p align="center">
 This is my smart home. A continuous work in progress I'm sure you can all relate to. To Begin, the following methods of automation have been through a criterion of integration. This criterion is:</p>
@@ -96,6 +96,33 @@ This is my smart home. A continuous work in progress I'm sure you can all relate
   </tr>
 </tbody>
 </table>
+
+#### Wall plug <a name="wall plug" href="https://github.com/perksie/Home-Assistant#wallplug"></a>
+
+<table style="undefined;table-layout: fixed; width: 562px">
+<thead>
+  <tr>
+    <th>Device</th>
+    <th>Quantity</th>
+    <th>Connection</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+  <tbody>
+  <tr>
+    <td><a href="https://www.bunnings.com.au/arlec-white-grid-connect-smart-plug-in-socket-with-energy-meter_p0273367" target="_blank" rel="noopener noreferrer">Arlec Grid Connect Smart Wall Plug</a><br>
+    <img src="https://github.com/perksie/Home-Assistant/blob/master/img/arlecwall.png?raw=true" width="300" height ="180"></td>
+    <td>4</td>
+    <td>Wi-Fi</td>
+    <td>More solid than the xioami wall plug</td>
+  </tr>
+  <tr>
+    <td><a href="https://xiaomi-mi.com/sockets-and-sensors/xiaomi-mi-smart-socket-plug/" target="_blank" rel="noopener noreferrer">Xiaomi Smart Wall Plug</a><br>
+    <img src="https://github.com/perksie/Home-Assistant/blob/master/img/xiaomiwallplug.png?raw=true" width="300" height ="180"></td>
+    <td>1</td>
+    <td>Wi-Fi</td>
+    <td>Overheats a little bit</td>
+  </tbody>
 
 <br>
 <h3 align="center">:construction: Work in progress :construction:</h3>
